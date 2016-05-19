@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="vertical">
+<TextView
+    android:id="@+id/tas_tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:layout_marginLeft="16dp"
+    android:textColor="@color/whole_text_blackSecond"
+    android:textSize="@dimen/whole_thirdTextSize"
+    android:text="历史搜索"/>
+
+</LinearLayout>
