@@ -61,27 +61,23 @@ public class AddressActivityAdapter extends BaseAdapter {
         viewHolder.mIaaCbDefalut.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//               //解决只能选择一个默认地址
-//                for (int i = 0; i < mAddressList.size(); i++) {
-//                    mAddressList.get(i).setDefaultAddresss(false);
-//                }
-                //解决错乱问题
                 if (viewHolder.mIaaCbDefalut.isChecked()) {
                     mAddressList.get(position).setDefaultAddresss(true);
                 } else {
                     mAddressList.get(position).setDefaultAddresss(false);
                 }
-                //开始解决只能选择一个默认地址
+//                //开始解决只能选择一个默认地址
 //                Toast.makeText(mContext, position+"---"+mAddressList.get(position).toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
         //开始设置参数
         Address address = mAddressList.get(position);
         viewHolder.mIaaTvName.setText(address.getName());
         viewHolder.mIaaTvPhone.setText(address.getPhone());
         viewHolder.mIaaTvAddress.setText(address.getAddress());
         viewHolder.mIaaCbDefalut.setChecked(address.isDefaultAddresss());
-        notifyDataSetChanged();
         return convertView;
     }
 
