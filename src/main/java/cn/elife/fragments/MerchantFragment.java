@@ -56,16 +56,6 @@ public class MerchantFragment extends Fragment {
     }
 
     private void initListener() {
-        //监听商品列表
-        mFmLvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "点击了"+mMerchantList.get(position), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        //监听分类标题
         mFmSpSp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

@@ -6,10 +6,19 @@
 
     <!--底部猜你喜欢模块采用一个自定义布局方式-->
 
-    <cn.elife.widget.NoScrollScrollView
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_srl_refresh">
+
+        <!--<cn.elife.widget.NoScrollScrollView-->
+        <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,23 +40,25 @@
                 android:id="@+id/home_vp_bunner"></android.support.v4.view.ViewPager>
 
 
-            <!--<android.support.v7.widget.RecyclerView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:id="@+id/home_rv_showAll"></android.support.v7.widget.RecyclerView>-->
+                android:id="@+id/home_rv_showAll"></android.support.v7.widget.RecyclerView>
 
-            <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-                android:id="@+id/home_plmrv_showAll"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:background="#ea63da"
-                ></com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
-
-
+            <!--<com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView-->
+                <!--android:id="@+id/home_plmrv_showAll"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:background="#ea63da"-->
+                <!--&gt;</com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>-->
 
         </LinearLayout>
-    </cn.elife.widget.NoScrollScrollView>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

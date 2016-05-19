@@ -5,6 +5,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +15,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ import cn.elife.adapters.homeShowBannerAdapter;
 import cn.elife.adapters.homeShowTypeAdapter;
 import cn.elife.bean.Goods;
 import cn.elife.elife.R;
+import cn.elife.utils.DividerItemDecoration;
 
 /**
  * TODO- 在页面没有获取焦点的时候关闭自动轮播
@@ -39,8 +41,8 @@ public class HomeFragment extends Fragment {
     public static final int BANNER_REFRESH_TIME = 5 * 1000;//轮播图刷新的时间
 
     GridView mGridView;//分类展示的组件GridView
-//    RecyclerView mRecyclerView;//替代listview//展示首页所有内容的listview
-    PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;//替代listview//展示首页所有内容的listview
+    RecyclerView mRecyclerView;//替代listview//展示首页所有内容的listview
+//    PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;//替代listview//展示首页所有内容的listview
     ViewPager mViewPager;//轮播图的ViewPager
 
     List<Goods> mgoodslist;//商品展示的数据集合
@@ -51,6 +53,11 @@ public class HomeFragment extends Fragment {
     homeShowTypeAdapter mHomeShowTypeAdapter;//八个分类的适配器
     homeShowBannerAdapter mHomeShowBannerAdapter;//轮播图的适配器
 
+    SwipeRefreshLayout mSwipeRefreshLayout;//谷歌自带的刷新布局
+    StaggeredGridLayoutManager mLayoutManager;
+
+    //最后一个可见的元素
+    int lastPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,11 +80,14 @@ public class HomeFragment extends Fragment {
 
         /****************设置关于底部商品展示的RecyclerView的适配器的相关参数并绑定**********************/
         //设置瀑布布局
-        mPullLoadMoreRecyclerView.setStaggeredGridLayout(RECYCLERVIEWCOLUMNCOUNT);
+//        mRecyclerView.setStaggeredGridLayout(RECYCLERVIEWCOLUMNCOUNT);
+        mLayoutManager =
+                new StaggeredGridLayoutManager(RECYCLERVIEWCOLUMNCOUNT,StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         //绑定适配器
-        mPullLoadMoreRecyclerView.setAdapter(mHomeShowAllAdapter);
+        mRecyclerView.setAdapter(mHomeShowAllAdapter);
         //给RecyclerView添加底部分隔线
-//        mPullLoadMoreRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
 
         /****************设置关于上边八个分类的的适配器的相关参数并绑定**********************/
         mGridView.setAdapter(mHomeShowTypeAdapter);
@@ -103,12 +113,12 @@ public class HomeFragment extends Fragment {
     private void setListener() {
 
         /********为商品展示的RecyclerView设置监听事件*******/
-//        mHomeShowAllAdapter.setOnItemClickListener(new homeShowAllAdapter.MyItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                show("我点击了RecyclerView中的" + mgoodslist.get(position).getName());
-//            }
-//        });
+        mHomeShowAllAdapter.setOnItemClickListener(new homeShowAllAdapter.MyItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                show("我点击了RecyclerView中的" + mgoodslist.get(position).getName());
+            }
+        });
 
         /********为展示分类的GirdView设置监听事件**********/
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -137,22 +147,98 @@ public class HomeFragment extends Fragment {
         });
 
         /*******为上拉加载，下拉刷新的空间设置监听事件********/
-        mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                //在这里完成刷新操作
+                mSwipeRefreshLayout.setRefreshing(true);
+                //两秒之后执行这个操作
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+//                        清空数据集合
+                        mgoodslist.clear();
+//                        获得刷新的数据
+                        refreshData();
+                    }
+                },2000);
 
+            }
+        });
+
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+//                show("我可以获取到滑动事件onScrollStateChanged ");
+                //滑动状态发生了变化
+                //如果最后一个可见的元素的索引等于数据集合的长度，就进行加载操作,并且
+                show("最后一个索引" + lastPosition + "; 数据集合数据量：" + mHomeShowAllAdapter.getItemCount());
+                switch (newState){
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+                        show("我获取到的是DRAGGING");
+                        break;
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        show("我获取到的是IDLE");
+                        break;
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+                        show("我获取到的是SETTLING");
+                        break;
+                }
+
+
+                if(lastPosition  == mHomeShowAllAdapter.getItemCount()
+                        &&  newState == RecyclerView.SCROLL_STATE_IDLE){
+                    //此处进行加载操作
+
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+//                        清空数据集合
+                            mgoodslist.clear();
+//                        获得刷新的数据
+                            loadData();
+                            show("我正在加载数据...");
+                        }
+                    },2000);
+                }
             }
 
             @Override
-            public void onLoadMore() {
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+//                发生了滑动
+                int[] lastVisiablePositions = mLayoutManager.findLastVisibleItemPositions(null);
+
+//                show("我可以获取到滑动事件onScrolled" + lastVisiablePositions[0]);
+                //得到最后一个可见的元素的索引
+                lastPosition = lastVisiablePositions[0];
 
             }
-
         });
 
+    }
 
+    //加载数据
+    private void loadData() {
 
+        Goods goods1 = new Goods("加载牛肉干",15.0,R.drawable.goods,98);
+        Goods goods2 = new Goods("加载大豫竹",14.0,R.drawable.goods,98);
+        Goods goods3 = new Goods("加载火腿肠",15.0,R.drawable.goods,98);
+        Goods goods4 = new Goods("加载酸乌梅",18.0,R.drawable.goods,98);
+        Goods goods5 = new Goods("加载洗面奶",56.0,R.drawable.goods,98);
+        Goods goods6 = new Goods("加载卫龙",12.0,R.drawable.goods,98);
+        Goods goods7 = new Goods("加载老干妈",15.0,R.drawable.goods,98);
+        Goods goods8 = new Goods("加载香酥米",16.0,R.drawable.goods,98);
+        Goods goods9 = new Goods("加载冰糖葫芦",17.0,R.drawable.goods,98);
+        Goods goods10 = new Goods("加载鱿鱼",12.0,R.drawable.goods,98);
+        Goods goods11 = new Goods("加载哇哈哈哈",12.0,R.drawable.goods,98);
+        mgoodslist.add(goods1);mgoodslist.add(goods2);mgoodslist.add(goods3);
+        mgoodslist.add(goods4);mgoodslist.add(goods5);mgoodslist.add(goods6);
+        mgoodslist.add(goods7);mgoodslist.add(goods8);mgoodslist.add(goods9);
+        mgoodslist.add(goods10);mgoodslist.add(goods11);
 
+        mHomeShowAllAdapter.notifyDataSetChanged();
 
     }
 
@@ -206,9 +292,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void initViews() {
-        mPullLoadMoreRecyclerView = (PullLoadMoreRecyclerView) mView.findViewById(R.id.home_plmrv_showAll);
+        mRecyclerView = (RecyclerView) mView.findViewById(R.id.home_rv_showAll);
         mGridView = (GridView) mView.findViewById(R.id.home_gv_type);
         mViewPager = (ViewPager) mView.findViewById(R.id.home_vp_bunner);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) mView.findViewById(R.id.home_srl_refresh);
     }
 
 
@@ -268,6 +356,34 @@ public class HomeFragment extends Fragment {
             }
         }
     };
+
+    //刷新得到的数据
+    private void refreshData(){
+
+        Goods goods1 = new Goods("刷新牛肉干",15.0,R.drawable.goods,98);
+        Goods goods2 = new Goods("刷新大豫竹",14.0,R.drawable.goods,98);
+        Goods goods3 = new Goods("刷新火腿肠",15.0,R.drawable.goods,98);
+        Goods goods4 = new Goods("刷新酸乌梅",18.0,R.drawable.goods,98);
+        Goods goods5 = new Goods("刷新洗面奶",56.0,R.drawable.goods,98);
+        Goods goods6 = new Goods("刷新卫龙",12.0,R.drawable.goods,98);
+        Goods goods7 = new Goods("刷新老干妈",15.0,R.drawable.goods,98);
+        Goods goods8 = new Goods("刷新香酥米",16.0,R.drawable.goods,98);
+        Goods goods9 = new Goods("刷新冰糖葫芦",17.0,R.drawable.goods,98);
+        Goods goods10 = new Goods("刷新鱿鱼",12.0,R.drawable.goods,98);
+        Goods goods11 = new Goods("刷新哇哈哈哈",12.0,R.drawable.goods,98);
+        mgoodslist.add(goods1);mgoodslist.add(goods2);mgoodslist.add(goods3);
+        mgoodslist.add(goods4);mgoodslist.add(goods5);mgoodslist.add(goods6);
+        mgoodslist.add(goods7);mgoodslist.add(goods8);mgoodslist.add(goods9);
+        mgoodslist.add(goods10);mgoodslist.add(goods11);
+
+        mHomeShowAllAdapter.notifyDataSetChanged();
+        if(mSwipeRefreshLayout.isRefreshing()){
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+
+    }
+
+
 
 
 }

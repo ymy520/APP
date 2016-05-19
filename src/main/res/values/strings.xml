@@ -1,8 +1,4 @@
 <resources>
     <string name="app_name">Elife</string>
     <string name="content">内容</string>
-
-    <string name="cart_balance">去结算</string>
-    <string name="cart_title">购物车</string>
-    <string name="cart_edit">编辑</string>
 </resources>

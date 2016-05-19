@@ -16,7 +16,7 @@
         android:id="@+id/ifm_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
         android:text="商家名字"
         android:textSize="16dp"
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         style="?android:attr/ratingBarStyleSmall"
         android:layout_below="@+id/ifm_tv_title"
         android:layout_toRightOf="@+id/ifm_iv_img"/>
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_below="@+id/ifm_rb_score"
         android:layout_toRightOf="@+id/ifm_iv_img"
         >
@@ -59,7 +59,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:layout_marginLeft="8dp">
 
             <TextView

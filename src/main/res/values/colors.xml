@@ -8,8 +8,7 @@
 
 
     <!--自定义颜色-->
-    <!--白色的字体颜色-->
-    <color name="whole_white">#FFFFFF</color>
+
     <!--全局背景颜色-->
     <color name="whole_bg">#EDEDED</color>
     <!--全局分割线颜色-->
@@ -23,7 +22,7 @@
     <!--字体颜色首选项颜色，包括：“首页六大按钮字体颜色、“猜你喜欢”四个字的颜色、点击商家，上面出现的“商家”二字”、商店名字、商品名字、-->
     <color name="whole_text_blackFirst">#373736</color>
     <!--字体颜色次级选项颜色，包括：提示文字（hint）、销量、“历史记录”四个字、等次级选项的字体颜色-->
-    <color name="whole_text_blackSecond">#bfbdbd</color>
+    <color name="whole_text_blackSecond">#d6d3d3</color>
 
     <!--红色的字体颜色-->
     <color name="whole_text_redColor">#FF0000</color>

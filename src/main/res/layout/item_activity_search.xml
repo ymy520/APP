@@ -14,8 +14,7 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:text="测试文字"
-        android:textColor="@color/whole_text_blackFirst"
-        android:textSize="@dimen/whole_thirdTextSize"
+        android:textSize="15dp"
         />
     <!--分割线-->
     <TextView
