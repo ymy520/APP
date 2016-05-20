@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            jniLibs.srcDirs=["libs"]
+        }
+    }
 }
 
 dependencies {
@@ -28,4 +33,7 @@ dependencies {
     compile 'com.android.support:percent:23.2.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.5'
+    compile files('libs/Msc.jar')
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.android.support:support-annotations:23.3.0'
 }

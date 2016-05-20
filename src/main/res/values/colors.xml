@@ -11,6 +11,8 @@
 
     <!--全局背景颜色-->
     <color name="whole_bg">#EDEDED</color>
+
+    <!--自定义颜色-->
     <!--全局分割线颜色-->
     <color name="whole_divider">#EDEDED</color>
     <!--全局基色（也就是app的基色）-->

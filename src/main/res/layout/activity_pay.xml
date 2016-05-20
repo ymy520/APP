@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:pay="http://schemas.android.com/apk/res-auto"
     android:background="@color/whole_bg"
     android:orientation="vertical"
     tools:context="cn.elife.elife.PayActivity">
@@ -25,15 +26,14 @@
             android:textSize="@dimen/whole_titleTextSize"/>
     </LinearLayout>
     <android.support.percent.PercentRelativeLayout
-
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="100dp"
         android:background="@color/whole_white">
         <ImageView
             android:id="@+id/pay_moneyImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:src="@drawable/money"/>
         <TextView
@@ -58,30 +58,43 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/pay_moneyImage"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="58dp"
             android:text="易生活收银台"
             android:textSize="20sp"/>
 
     </android.support.percent.PercentRelativeLayout>
-    <android.support.percent.PercentRelativeLayout
+    <cn.elife.utils.PayRadioGroup
+        android:id="@+id/pay_radiogroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/login_wechat_logo_normal"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RadioGroup>
-
-    </android.support.percent.PercentRelativeLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+        <cn.elife.utils.PayRadioPurified
+            android:id="@+id/pay_p1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            pay:pay_radio="@drawable/radio"
+            pay:pay_logo="@drawable/ic_alipay_wap"
+            pay:pay_title="支付宝支付"
+            pay:pay_desc="支持支付宝账号支付"
+            pay:pay_checked="true"
+            />
+        <cn.elife.utils.PayRadioPurified
+            android:id="@+id/pay_p2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            pay:pay_radio="@drawable/radio"
+            pay:pay_logo="@drawable/pay_wechat"
+            pay:pay_title="微信支付"
+            pay:pay_desc="支持微信账号支付"
+            />
+    </cn.elife.utils.PayRadioGroup>
+    <Button
+        android:id="@+id/pay_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="确认支付"
+        android:textSize="@dimen/whole_titleTextSize"/>
 
 </LinearLayout>
