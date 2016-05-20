@@ -64,7 +64,7 @@
                 android:text="所在地区"
                 />
 
-            <TextView
+            <EditText
                 android:id="@+id/aua_et_address"
                 style="@style/style_activity_update_address_righteditview"/>
 

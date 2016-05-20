@@ -47,13 +47,11 @@
         </activity>
         <activity android:name=".MyCenterActivity">
         </activity>
-        <activity android:name=".AddressActivity"
-            android:launchMode="singleTask">
-
+        <activity android:name=".AddressActivity">
         </activity>
-        <activity android:name=".UpdateAddressActivity"
-            >
-
+        <activity android:name=".UpdateAddressActivity">
+        </activity>
+        <activity android:name=".PayActivity">
         </activity>
     </application>
 
