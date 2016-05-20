@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +25,10 @@ import cn.elife.elife.R;
 /**
  * Created by Bill on 2016/5/2.
  */
-public class MerchantFragment extends Fragment {
+public class MerchantFragment extends Fragment implements MerchantFragmentAdapter.MyItemClickListener {
     @Bind(R.id.fm_lv_main)
-    ListView mFmLvMain;//商家列表信息核心数据
-    private BaseAdapter mBaseAdapter;//商家列表信息核心数据适配器
-    private View mView;
-    private List<Merchant> mMerchantList;
-
+    //  ListView mFmLvMain;//商家列表信息核心数据
+            PullLoadMoreRecyclerView mFmLvMain;//使用RecyclerView
     //下面是分类标头的相关参数
     @Bind(R.id.fm_sp_sp1)
     Spinner mFmSpSp1;
@@ -38,6 +36,9 @@ public class MerchantFragment extends Fragment {
     Spinner mFmSpSp2;
     @Bind(R.id.fm_sp_sp3)
     Spinner mFmSpSp3;
+    private MerchantFragmentAdapter mBaseAdapter;//商家列表信息核心数据适配器
+    private View mView;
+    private List<Merchant> mMerchantList;
     private List<String> data_list1;
     private List<String> data_list2;
     private List<String> data_list3;
@@ -48,6 +49,7 @@ public class MerchantFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_meichant, null);
         ButterKnife.bind(this, mView);
+        initView();
         initData();//这个地方将来需要从网络获取数据
         //初始化listview
         initListView();
@@ -55,21 +57,27 @@ public class MerchantFragment extends Fragment {
         return mView;
     }
 
-    private void initListener() {
-        //监听商品列表
-        mFmLvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "点击了"+mMerchantList.get(position), Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void initView() {
+        mFmLvMain.setLinearLayout();
+        //给RecyclerView添加底部分隔线
+        // mFmLvMain.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
+    }
 
+    private void initListener() {
+        //不再在这里监听，在适配器监听
+//        //监听商品列表
+//        mFmLvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getContext(), "点击了"+mMerchantList.get(position), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         //监听分类标题
         mFmSpSp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "点击了"+data_list1.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "点击了" + data_list1.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -81,7 +89,7 @@ public class MerchantFragment extends Fragment {
         mFmSpSp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "点击了"+data_list2.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "点击了" + data_list2.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -93,12 +101,24 @@ public class MerchantFragment extends Fragment {
         mFmSpSp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "点击了"+data_list3.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "点击了" + data_list3.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        //下拉上拉操作
+        mFmLvMain.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(getContext(), "开始刷新", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onLoadMore() {
+                Toast.makeText(getContext(), "开始加载更多", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -142,19 +162,19 @@ public class MerchantFragment extends Fragment {
     private void initListView() {
         //加载分类
         //适配器
-        arr_adapter = new MerchantFragmentSortAdapter(getContext(),data_list1);
+        arr_adapter = new MerchantFragmentSortAdapter(getContext(), data_list1);
         mFmSpSp1.setAdapter(arr_adapter);
         //适配器
-        arr_adapter = new MerchantFragmentSortAdapter(getContext(),data_list2);
+        arr_adapter = new MerchantFragmentSortAdapter(getContext(), data_list2);
         mFmSpSp2.setAdapter(arr_adapter);
         //适配器
-        arr_adapter = new MerchantFragmentSortAdapter(getContext(),data_list3);
+        arr_adapter = new MerchantFragmentSortAdapter(getContext(), data_list3);
         mFmSpSp3.setAdapter(arr_adapter);
-
 
 
         //加载核心数据
         mBaseAdapter = new MerchantFragmentAdapter(getContext(), mMerchantList);
+        mBaseAdapter.setOnItemClickListener(this);
         mFmLvMain.setAdapter(mBaseAdapter);
     }
 
@@ -162,5 +182,12 @@ public class MerchantFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    //这里获取点击的商家操作
+    @Override
+    public void onItemClick(View view, int postion) {
+
+        Toast.makeText(getContext(), "点击了" + mMerchantList.get(postion).toString(), Toast.LENGTH_SHORT).show();
     }
 }

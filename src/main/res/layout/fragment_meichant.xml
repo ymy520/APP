@@ -47,9 +47,10 @@
 
 
     <!--核心数据开始-->
-    <ListView
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
         android:id="@+id/fm_lv_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
+        android:layout_height="match_parent"
+        android:background="@color/whole_white">
+    </com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
 </LinearLayout>
