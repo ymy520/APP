@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import cn.elife.fragments.CartFragment;
 import cn.elife.fragments.HomeFragment;
 import cn.elife.fragments.MerchantFragment;
 import cn.elife.fragments.MyFragment;
