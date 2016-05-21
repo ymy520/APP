@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,16 +63,20 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case LOAD_LOGIC:
-                    update();
+                    loadMore();
                     break;
                 case LOAD_DATA:
                     break;
                 case UPDATE_DATA:
+                    update();
                     break;
             }
 
         }
     };
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -112,6 +117,7 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
                     Toast.makeText(getContext(), "点击了" + data_list1.get(position), Toast.LENGTH_SHORT).show();
                 //被选中
                 TextView v1 = (TextView) view.findViewById(R.id.ifms_tv_title);
+                v1.setGravity(Gravity.CENTER);
                 v1.setTextColor(Color.WHITE); //可以随意设置自己要的颜色值
             }
 
@@ -128,6 +134,7 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
                     Toast.makeText(getContext(), "点击了" + data_list2.get(position), Toast.LENGTH_SHORT).show();
                 //被选中
                 TextView v1 = (TextView) view.findViewById(R.id.ifms_tv_title);
+                v1.setGravity(Gravity.CENTER);
                 v1.setTextColor(Color.WHITE); //可以随意设置自己要的颜色值
 
 
@@ -138,7 +145,6 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
 
             }
         });
-
         mFmSpSp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -146,6 +152,7 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
                     Toast.makeText(getContext(), "点击了" + data_list3.get(position), Toast.LENGTH_SHORT).show();
                 //被选中
                 TextView v1 = (TextView) view.findViewById(R.id.ifms_tv_title);
+                v1.setGravity(Gravity.CENTER);
                 v1.setTextColor(Color.WHITE); //可以随意设置自己要的颜色值
             }
 
@@ -207,14 +214,14 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
         switch (scrollState) {
             case SCROLL_STATE_IDLE:
                 //滑动结束
-                break;
-            case SCROLL_STATE_FLING:
-                //手指离开屏幕
                 if (result1 >= result2) {
                     //只发送一次,防止多次加载数据
                     if (!mHandler.hasMessages(LOAD_LOGIC))
-                        mHandler.sendEmptyMessageDelayed(LOAD_LOGIC, 6000);
+                        mHandler.sendEmptyMessageDelayed(LOAD_LOGIC, 3000);
                 }
+                break;
+            case SCROLL_STATE_FLING:
+
                 break;
             case SCROLL_STATE_TOUCH_SCROLL:
                 //滑动中
@@ -228,18 +235,19 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
         result1 = firstVisibleItem + visibleItemCount;
         result2 = totalItemCount;
     }
-
-    ///////////***********上面代码不用改动***********
-////******************注意一下这个地方***********---------------
+    //更新数据
     private void update() {
+        getCoreData();
+        mBaseAdapter.notifyDataSetChanged();
+    }
+    ///////////***********上面代码不用改动***********
+    private void loadMore() {
         for (int i = 0; i < 3; i++) {
             Merchant merchant = new Merchant(10 + i, i + "", R.drawable.mart + "", "新2的可乐超市+" + mMerchantList.size() + "---" + i, 3.0f, "12元起送");
             mMerchantList.add(merchant);
         }
-        getCoreData();//实际应用中注释掉上面代码，使用这一行即可
         mBaseAdapter.notifyDataSetChanged();
     }
-
 
     //******************这里是程序入口*****************---------------------
     //核心数据，从网络获取数据
@@ -276,10 +284,12 @@ public class MerchantFragment extends Fragment implements AbsListView.OnScrollLi
     private void getCoreData() {
         //加载核心数据
         mMerchantList = new ArrayList<>();
+        mMerchantList.clear();
         for (int i = 0; i < 20; i++) {
             Merchant merchant = new Merchant(10 + i, i + "", R.drawable.mart + "", "可乐超市", 3.0f, "12元起送");
             mMerchantList.add(merchant);
         }
+
     }
 
 }
