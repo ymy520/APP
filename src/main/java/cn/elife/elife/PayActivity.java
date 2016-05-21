@@ -1,13 +1,11 @@
 package cn.elife.elife;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import cn.elife.fragments.CartFragment;
 import cn.elife.utils.PayRadioGroup;
 import cn.elife.utils.PayRadioPurified;
 
@@ -44,3 +42,4 @@ public class PayActivity extends AppCompatActivity {
         backButton= (ImageButton) findViewById(R.id.pay_backbutton);
     }
 }
+

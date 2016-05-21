@@ -8,73 +8,72 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Checkable;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.elife.elife.R;
 
-/**
- * Author：张凯  on 2016/5/20 09:25
- * Blog: bukevin@github.io
- */
-public class PayRadioButton extends Button implements Checkable {
 
-    private Context context;
-    private ImageView payLogo;
-    private TextView payDesc;
-    private ImageView payChecked;
+public class PayRadioButton extends Button implements Checkable{
 
-    private Drawable mLogoDrawable;
-
-    private boolean mChecked;	////状态是否选中
+	private Context context;
+	private ImageView payLogo;
+	private TextView payDesc;
+	private ImageView payChecked;	
+	
+	private Drawable mLogoDrawable;
+	
+	private boolean mChecked;	////状态是否选中
     private int mButtonResource;
     private boolean mBroadcasting;
     private Drawable mButtonDrawable;
     private OnCheckedChangeListener mOnCheckedChangeListener;	////选中状态改变监听
     private OnCheckedChangeListener mOnCheckedChangeWidgetListener;
-
+    
     private static final int[] CHECKED_STATE_SET = {
-            android.R.attr.state_checked
+        android.R.attr.state_checked
     };
 
-    public PayRadioButton(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        // TODO Auto-generated constructor stub
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PayRidioButton);
+	public PayRadioButton(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PayRidioButton);
+		
+		Drawable d = array.getDrawable(R.styleable.PayRidioButton_radio);
+		if (d != null) {
+			setButtonDrawable(d);
+		}
+		
+		boolean checked = array.getBoolean(R.styleable.PayRidioButton_checked, false);
+		setChecked(checked);
+		
+		String dString = array.getString(R.styleable.PayRidioButton_desc);
+		setText(dString);
+		
+		Drawable logo = array.getDrawable(R.styleable.PayRidioButton_logo1);
+		mLogoDrawable = logo;
+		setCompoundDrawables(mLogoDrawable, null, null, null);
+		
+		array.recycle();
+		
+		
+	}
+	
+	@Override
+	public boolean isChecked() {
+		// TODO Auto-generated method stub
+		return mChecked;
+	}
 
-        Drawable d = array.getDrawable(R.styleable.PayRidioButton_pay_radio);
-        if (d != null) {
-            setButtonDrawable(d);
-        }
-
-        boolean checked = array.getBoolean(R.styleable.PayRidioButton_pay_checked, false);
-        setChecked(checked);
-
-        String dString = array.getString(R.styleable.PayRidioButton_pay_desc);
-        setText(dString);
-
-        Drawable logo = array.getDrawable(R.styleable.PayRidioButton_pay_logo);
-        mLogoDrawable = logo;
-        setCompoundDrawables(mLogoDrawable, null, null, null);
-
-        array.recycle();
-
-
-    }
-
-    @Override
-    public boolean isChecked() {
-        // TODO Auto-generated method stub
-        return mChecked;
-    }
-
-    @Override
-    public void setChecked(boolean checked) {
-        // TODO Auto-generated method stub		//执行到这，因为第一个是没有选中的，所以没知道这里，但是第二个，默认是选中的，执行了它
-        //当执行了点击事件
-        if (mChecked != checked) {
+	@Override
+	public void setChecked(boolean checked) {
+		// TODO Auto-generated method stub		//执行到这，因为第一个是没有选中的，所以没知道这里，但是第二个，默认是选中的，执行了它
+		//当执行了点击事件
+		if (mChecked != checked) {
             mChecked = checked;
             refreshDrawableState();
 
@@ -84,28 +83,28 @@ public class PayRadioButton extends Button implements Checkable {
             }
             mBroadcasting = true;
             if (mOnCheckedChangeListener != null) {
-                System.out.println(">>>25");		//点击了也没有执行
+            	System.out.println(">>>25");		//点击了也没有执行
                 mOnCheckedChangeListener.onCheckedChanged(this, mChecked);
             }
             if (mOnCheckedChangeWidgetListener != null) {
-                System.out.println(">>>27");		//点击后执行了
+            	System.out.println(">>>27");		//点击后执行了
                 mOnCheckedChangeWidgetListener.onCheckedChanged(this, mChecked);
             }
-            mBroadcasting = false;		//这里都是最后执行的、
+            mBroadcasting = false;		//这里都是最后执行的、  
         }
-    }
+	}
 
-    @Override
-    public void toggle() {
-        // TODO Auto-generated method stub
-        if (!isChecked()) {
-            setChecked(!mChecked);
-        }
-    }
-
-    @Override
-    public boolean performClick() {
-        // TODO Auto-generated method stub
+	@Override
+	public void toggle() {
+		// TODO Auto-generated method stub
+		if (!isChecked()) {
+			setChecked(!mChecked);
+		}
+	}
+	
+	@Override
+	public boolean performClick() {
+		// TODO Auto-generated method stub
 		/*
          * XXX: These are tiny, need some surrounding 'expanded touch area',
          * which will need to be implemented in Button if we only override
@@ -114,10 +113,10 @@ public class PayRadioButton extends Button implements Checkable {
 
         /* When clicked, toggle the state */
         toggle();
-        return super.performClick();
-    }
-
-    /**
+		return super.performClick();
+	}
+	
+	/**
      * Register a callback to be invoked when the checked state of this button
      * changes.
      *
@@ -137,7 +136,7 @@ public class PayRadioButton extends Button implements Checkable {
     void setOnCheckedChangeWidgetListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeWidgetListener = listener;
     }
-
+    
     /**
      * Interface definition for a callback to be invoked when the checked state
      * of a compound button changed.
@@ -151,11 +150,11 @@ public class PayRadioButton extends Button implements Checkable {
          */
         void onCheckedChanged(PayRadioButton buttonView, boolean isChecked);
     }
-
+    
     /**
      * Set the background to a given Drawable, identified by its resource id.
      *
-     * @param resid the resource id of the drawable to use as the background
+     * @param resid the resource id of the drawable to use as the background 
      */
     public void setButtonDrawable(int resid) {
         if (resid != 0 && resid == mButtonResource) {
@@ -170,7 +169,7 @@ public class PayRadioButton extends Button implements Checkable {
         }
         setButtonDrawable(d);
     }
-
+    
     /**
      * Set the background to a given Drawable
      *
@@ -196,10 +195,10 @@ public class PayRadioButton extends Button implements Checkable {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        // TODO Auto-generated method stub
-        super.onDraw(canvas);
-
-        final Drawable buttonDrawable = mButtonDrawable;
+    	// TODO Auto-generated method stub
+    	super.onDraw(canvas);
+    	
+    	final Drawable buttonDrawable = mButtonDrawable;
         if (buttonDrawable != null) {
             final int verticalGravity = getGravity() & Gravity.VERTICAL_GRAVITY_MASK;
             final int height = buttonDrawable.getIntrinsicHeight();
@@ -216,7 +215,7 @@ public class PayRadioButton extends Button implements Checkable {
                     y = (getHeight() - height) / 2;
                     break;
             }
-
+            
             x = getWidth() - width;		//得到其与左边的间距
 
 //            buttonDrawable.setBounds(0, y, buttonDrawable.getIntrinsicWidth(), y + height);
@@ -224,12 +223,12 @@ public class PayRadioButton extends Button implements Checkable {
             buttonDrawable.draw(canvas);
         }
     }
-
+    
     @Override
     protected int[] onCreateDrawableState(int extraSpace) {
         final int[] drawableState = super.onCreateDrawableState(extraSpace + 1);
         if (isChecked()) {
-            mergeDrawableStates(drawableState, CHECKED_STATE_SET);
+           mergeDrawableStates(drawableState, CHECKED_STATE_SET);
         }
         return drawableState;
     }
@@ -237,13 +236,13 @@ public class PayRadioButton extends Button implements Checkable {
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-
+        
         if (mButtonDrawable != null) {
             int[] myDrawableState = getDrawableState();
-
+            
             // Set the state of the Drawable
             mButtonDrawable.setState(myDrawableState);
-
+            
             invalidate();
         }
     }
@@ -252,13 +251,17 @@ public class PayRadioButton extends Button implements Checkable {
     protected boolean verifyDrawable(Drawable who) {
         return super.verifyDrawable(who) || who == mButtonDrawable;
     }
-
+    
     static class SavedState extends BaseSavedState {
         boolean checked;
+
+        /**
+         * Constructor called from {@link CompoundButton#onSaveInstanceState()}
+         */
         SavedState(Parcelable superState) {
             super(superState);
         }
-
+        
         /**
          * Constructor called from {@link #CREATOR}
          */
@@ -280,8 +283,8 @@ public class PayRadioButton extends Button implements Checkable {
                     + " checked=" + checked + "}";
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
             }
@@ -307,11 +310,10 @@ public class PayRadioButton extends Button implements Checkable {
     @Override
     public void onRestoreInstanceState(Parcelable state) {
         SavedState ss = (SavedState) state;
-
+  
         super.onRestoreInstanceState(ss.getSuperState());
         setChecked(ss.checked);
         requestLayout();
     }
-
+    
 }
-
