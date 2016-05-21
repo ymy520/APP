@@ -9,9 +9,9 @@ public class SnacksListData implements Serializable {
     private String name;//零食详情
     private double price;//零食价格
     private int imgaddress;//零食图片地址
-    private int sale;//销售量
+    private String sale;//销售量
 
-    public SnacksListData(String name, double price, int imgaddress, int sale) {
+    public SnacksListData(String name, double price, int imgaddress, String sale) {
         this.name = name;
         this.price = price;
         this.imgaddress = imgaddress;
@@ -42,11 +42,11 @@ public class SnacksListData implements Serializable {
         this.imgaddress = imgaddress;
     }
 
-    public int getSale() {
+    public String getSale() {
         return sale;
     }
 
-    public void setSale(int sale) {
+    public void setSale(String sale) {
         this.sale = sale;
     }
 

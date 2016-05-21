@@ -223,17 +223,17 @@ public class SnacksActivity extends Activity {
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mList = new ArrayList<>();
-        SnacksListData d1 = new SnacksListData("松软甜美QQ糖100g/袋1", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d2 = new SnacksListData("松软甜美QQ糖100g/袋2", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d3 = new SnacksListData("松软甜美QQ糖100g/袋3", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d4 = new SnacksListData("松软甜美QQ糖100g/袋4", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d5 = new SnacksListData("松软甜美QQ糖100g/袋5", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d6 = new SnacksListData("松软甜美QQ糖100g/袋6", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d7 = new SnacksListData("松软甜美QQ糖100g/袋7", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d8 = new SnacksListData("松软甜美QQ糖100g/袋8", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d9 = new SnacksListData("松软甜美QQ糖100g/袋9", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d10 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks, 1000);
-        SnacksListData d11 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks, 1000);
+        SnacksListData d1 = new SnacksListData("松软甜美QQ糖100g/袋1", 10.5, R.drawable.snacks, "销量：1000");
+        SnacksListData d2 = new SnacksListData("松软甜美QQ糖100g/袋2", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d3 = new SnacksListData("松软甜美QQ糖100g/袋3", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d4 = new SnacksListData("松软甜美QQ糖100g/袋4", 10.5, R.drawable.snacks, "销量：1000");
+        SnacksListData d5 = new SnacksListData("松软甜美QQ糖100g/袋5", 10.5, R.drawable.snacks, "销量：1000");
+        SnacksListData d6 = new SnacksListData("松软甜美QQ糖100g/袋6", 10.5, R.drawable.snacks, "销量：1000");
+        SnacksListData d7 = new SnacksListData("松软甜美QQ糖100g/袋7", 10.5, R.drawable.snacks, "销量：1000");
+        SnacksListData d8 = new SnacksListData("松软甜美QQ糖100g/袋8", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d9 = new SnacksListData("松软甜美QQ糖100g/袋9", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d10 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d11 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks,  "销量：1000");
         mList.add(d1);
         mList.add(d2);
         mList.add(d3);

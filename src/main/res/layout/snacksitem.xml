@@ -4,12 +4,14 @@
                                         android:layout_height="wrap_content"
                                         xmlns:app="http://schemas.android.com/apk/res-auto"
                                         xmlns:card_view="http://schemas.android.com/tools"
-                                        android:layout_marginTop="15dp"
+                                        android:layout_marginTop="1dp"
                                         android:orientation="vertical"
-                                        card_view:cardElevation="2dp"
+                                        card_view:cardElevation="1dp"
+                                        android:layout_marginLeft="0.5dp"
+                                        android:layout_marginRight="0.5dp"
                                         android:layout_gravity="center"
-                                        card_view:cardBackgroundColor="@color/whole_text_blackSecond"
-                                        card_view:cardCornerRadius="5dp"
+                                        card_view:cardBackgroundColor="@color/snacksbg"
+
     >
 <LinearLayout
     android:layout_width="match_parent"
@@ -19,6 +21,7 @@
     <ImageView
         android:layout_width="140dp"
         android:layout_height="140dp"
+        android:layout_marginTop="8dp"
         android:id="@+id/snackslist"
         android:src="@drawable/snacks"/>
 
@@ -28,13 +31,12 @@
         android:layout_marginTop="8dp"
         android:id="@+id/snackdetal"
         android:text="松软美味QQ糖果10g/袋"
-
         android:textSize="@dimen/whole_third_detail"/>
     <LinearLayout
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:weightSum="2">
         <TextView
             android:id="@+id/priceTextView"
@@ -43,7 +45,8 @@
             android:layout_weight="0.8"
             android:textSize="@dimen/whole_third_detail"
             android:textColor="@color/whole_baseColor"
-            android:text="10￥"/>
+            android:text="10￥"
+            android:layout_marginBottom="5dp"/>
         <TextView
             android:id="@+id/countTextView"
             android:layout_width="0dp"
@@ -51,6 +54,7 @@
             android:layout_weight="1.2"
             android:textSize="@dimen/whole_third_detail"
             android:text="销量：1000"
+            android:layout_marginBottom="5dp"
             />
 
     </LinearLayout>
