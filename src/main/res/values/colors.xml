@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--不允许使用局部定义颜色，如需要改动或增加必须在这里进行。-->
+
+
+    <!--自定义颜色-->
+    <!--白色的字体颜色-->
+    <color name="whole_white">#FFFFFF</color>
+    <!--全局背景颜色-->
+    <color name="whole_bg">#EDEDED</color>
+    <!--全局分割线颜色-->
+    <color name="whole_divider">#EDEDED</color>
+    <!--全局基色（也就是app的基色）-->
+    <color name="whole_baseColor">#FF0000</color>
+    <!--五大按钮点击之前颜色-->
+    <color name="whole_btn">#858585</color>
+    <!--五大按钮点击之后颜色-->
+    <color name="whole_btn_pressed">#FF3C25</color>
+    <!--字体颜色首选项颜色，包括：“首页六大按钮字体颜色、“猜你喜欢”四个字的颜色、点击商家，上面出现的“商家”二字”、商店名字、商品名字、-->
+    <color name="whole_text_blackFirst">#373736</color>
+    <!--字体颜色次级选项颜色，包括：提示文字（hint）、销量、“历史记录”四个字、等次级选项的字体颜色-->
+    <color name="whole_text_blackSecond">#bfbdbd</color>
+
+    <!--红色的字体颜色-->
+    <color name="whole_text_redColor">#FF0000</color>
+    <!--白色的字体颜色-->
+    <color name="whole_text_whiteColor">#FFFFFF</color>
+
+
+    <!--局部色-->
+    <!--加入购物车背景颜色-->
+    <color name="part_bg_addCart">#FF9900</color>
+
+    <!--零食分割线颜色-->
+    <color name="snacksdiver">#c9c9c9</color>
+</resources>

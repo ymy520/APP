@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <!--头部分为两种布局，这是搜索布局，另外一个是导航布局-->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="郑州航院"
+            android:textSize="14sp"
+            android:textColor="@color/whole_text_blackSecond"
+            android:id="@+id/tps_tv_address"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/sp_search_press"
+            android:drawableRight="@drawable/voice"
+            android:textColorHint="@color/whole_text_blackSecond"
+            android:textColor="@color/whole_text_blackFirst"
+            android:hint="尽情搜索吧"
+            android:background="@drawable/shape_main_topbar_edittext"
+            android:id="@+id/tps_et_searchcontent"
+            android:textSize="@dimen/search_TextSize"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerInside"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:src="@drawable/mygoods_msg_icon"
+            android:id="@+id/tps_ib_message"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
