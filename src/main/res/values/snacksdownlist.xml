@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="classify">
+        <item>分类</item>
+        <item>休闲小零食</item>
+        <item>肉##肉</item>
+        <item>酒水饮料</item>
+        <item>糕点饼干</item>
+        <item>糖果/巧克力</item>
+        <item>+坚果</item>
+        <item>果冻/罐头</item>
+    </string-array>
+    <string-array name="hot">
+        <item>热卖</item>
+        <item>人气最高</item>
+        <item>好评优先</item>
+        <item>离我最近</item>
+        <item>价格最低</item>
+    </string-array>
+    <string-array name="place">
+        <item>地方特产</item>
+        <item>北京</item>
+        <item>上海</item>
+        <item>河南</item>
+        <item>西安</item>
+        <item>四川</item>
+        <item>重庆</item>
+        <item>黑龙江</item>
+    </string-array>
+</resources>

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="cn.elife.elife.MainActivity">
     
-    <!--分为上下连个部分;-->
+    <!--&lt;!&ndash;分为上下连个部分;&ndash;&gt;-->
     <include
         android:layout_width="match_parent"
         android:layout_height="0dp"

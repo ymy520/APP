@@ -3,13 +3,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-
         <!--修改在应用打开状态下，的一些系统的配置（电量、时间）-->
         <item name="colorPrimaryDark">@color/whole_baseColor</item>
-       <!-- <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>-->
     </style>
+
+    <!--零食分类列表分割线-->
+    <!--<style name="mySpinnerStyle" parent="android:style/Widget.ListView.DropDown">
+        <item name="android:divider">#e0e4e0</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>-->
 
     <!--底部导航菜单的单选按钮的样式-->
     <style name="bottom_menu_rb">
@@ -32,12 +34,13 @@
         <item name="android:layout_weight">1</item>
         <item name="android:dropDownVerticalOffset">40dp</item>
         <item name="android:dropDownWidth">1000dp</item>
+        <item name="android:background">@color/merchant_category_bg_red</item>
     </style>
     <!--定义spinner之间的线的样式-->
     <style name="style_mian_verline">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">25dp</item>
-        <item name="android:background">#dcdcdc</item>
+        <item name="android:background">#ffffff</item>
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
@@ -49,6 +52,13 @@
         <item name="android:background">@color/whole_divider</item>
     </style>
 
+    <style name="dot_style">
+        <item name="android:layout_width">10dip</item>
+        <item name="android:layout_height">10dip</item>
+        <item name="android:background">@drawable/dot_normal</item>
+        <item name="android:layout_marginLeft">1.5dip</item>
+        <item name="android:layout_marginRight">1.5dip</item>
+    </style>
     <style name="style_activity_update_address_lefttextview">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -83,31 +93,4 @@
         <item name="android:background">@color/whole_divider</item>
     </style>
 
-    <!-- start:自定义支付界面 -->
-    <declare-styleable name="PayRidioButton">
-        <attr name="pay_title" format="reference|string" />
-        <attr name="pay_logo" format="reference|color" />
-        <attr name="pay_desc" format="reference|string" />
-        <attr name="pay_checked" format="boolean" />
-        <attr name="pay_radio" format="reference"/>
-    </declare-styleable>
-
-    <!-- Standard orientation constant. -->
-    <attr name="orientation">
-        <!-- Defines an horizontal widget. -->
-        <enum name="horizontal" value="0" />
-        <!-- Defines a vertical widget. -->
-        <enum name="vertical" value="1" />
-    </attr>
-
-    <declare-styleable name="PayRidioGroup">
-        <!-- The id of the child radio button that should be checked by default
-             within this radio group. -->
-        <attr name="checkedButton" format="integer" />
-        <!-- Should the radio group be a column or a row?  Use "horizontal"
-             for a row, "vertical" for a column.  The default is
-             vertical. -->
-        <attr name="orientation" />
-    </declare-styleable>
-    <!-- End -->
 </resources>

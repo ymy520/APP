@@ -21,6 +21,7 @@ import cn.elife.elife.R;
  */
 public class AddressActivityAdapter extends BaseAdapter {
 
+    private static final String TAG ="AddressActivityAdapter+" ;
     private LayoutInflater mLayoutInflater;
     private List<Address> mAddressList;
     private Context mContext;
@@ -48,6 +49,7 @@ public class AddressActivityAdapter extends BaseAdapter {
     ViewHolder viewHolder = null;
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+       // Log.e(TAG,"位置："+position);
         if (convertView == null) {
              convertView = mLayoutInflater.inflate(R.layout.item_activity_address, null);
             viewHolder = new ViewHolder(convertView);
@@ -63,11 +65,14 @@ public class AddressActivityAdapter extends BaseAdapter {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (viewHolder.mIaaCbDefalut.isChecked()) {
                     mAddressList.get(position).setDefaultAddresss(true);
+//                    //开始解决只能点击一个默认地址逻辑。（待解决）
+//                    for (int i = 0; i <mAddressList.size()&&i!=position ; i++) {
+//                        if( mAddressList.get(i).isDefaultAddresss())  mAddressList.get(position).setDefaultAddresss(false);
+//                    }
+//                    notifyDataSetChanged();
                 } else {
                     mAddressList.get(position).setDefaultAddresss(false);
                 }
-//                //开始解决只能选择一个默认地址
-//                Toast.makeText(mContext, position+"---"+mAddressList.get(position).toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

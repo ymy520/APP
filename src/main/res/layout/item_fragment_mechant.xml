@@ -1,103 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:background="@color/whole_divider">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
+    <ImageView
+        android:id="@+id/ifm_iv_img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_rb_merchant"/>
+
+    <TextView
+        android:id="@+id/ifm_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
+        android:text="商家名字"
+        android:textSize="16dp"
+        android:textColor="#0e0e0e"
+        android:layout_toRightOf="@+id/ifm_iv_img"/>
+
+    <RatingBar
+        android:id="@+id/ifm_rb_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_below="@+id/ifm_tv_title"
+        android:layout_toRightOf="@+id/ifm_iv_img"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/ifm_rb_score"
+        android:layout_toRightOf="@+id/ifm_iv_img"
         >
 
-        <ImageView
-            android:id="@+id/ifm_iv_img"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:scaleType="fitXY"
-            android:layout_centerVertical="true"
-            android:src="@drawable/bottom_rb_merchant"/>
-
         <TextView
-            android:id="@+id/ifm_tv_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/ifm_tv_begin"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_toRightOf="@+id/ifm_iv_img"
-            android:text="商家名字"
-            android:textColor="#0e0e0e"
-            android:textSize="16dp"/>
-
-        <RatingBar
-            android:id="@+id/ifm_rb_score"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ifm_tv_title"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_toRightOf="@+id/ifm_iv_img"/>
-
+            android:layout_weight="1"
+            android:textSize="12dp"
+            android:textColor="#bab6b6"
+            android:text="6元起送"
+            />
+        <ImageView
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#dfdddd"
+            />
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ifm_rb_score"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_toRightOf="@+id/ifm_iv_img"
-            >
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginLeft="8dp">
 
             <TextView
-                android:id="@+id/ifm_tv_begin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="#bab6b6"
+                android:text="月销量:  "
+                />
+
+            <TextView
+                android:id="@+id/ifm_tv_nums"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="6元起送"
-                android:textColor="#bab6b6"
                 android:textSize="12dp"
+                android:textColor="#bab6b6"
+                android:text="8000"
                 />
-
-            <ImageView
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="#dfdddd"
-                />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="3">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="月销量:  "
-                    android:textColor="#bab6b6"
-                    android:textSize="12dp"
-                    />
-
-                <TextView
-                    android:id="@+id/ifm_tv_nums"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="8000"
-                    android:textColor="#bab6b6"
-                    android:textSize="12dp"
-                    />
-            </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
-
-    <!--分割线-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/whole_divider"/>
+    </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>
