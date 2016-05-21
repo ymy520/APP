@@ -61,7 +61,6 @@
             android:layout_marginTop="58dp"
             android:text="易生活收银台"
             android:textSize="20sp"/>
-
     </android.support.percent.PercentRelativeLayout>
     <cn.elife.utils.PayRadioGroup
         android:id="@+id/pay_radiogroup"
@@ -73,20 +72,20 @@
             android:id="@+id/pay_p1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            pay:pay_radio="@drawable/radio"
-            pay:pay_logo="@drawable/ic_alipay_wap"
-            pay:pay_title="支付宝支付"
-            pay:pay_desc="支持支付宝账号支付"
-            pay:pay_checked="true"
+            pay:radio="@drawable/radio"
+            pay:logo1="@drawable/ic_alipay_wap"
+            pay:title1="支付宝支付"
+            pay:desc="支持支付宝账号支付"
+            pay:checked="true"
             />
         <cn.elife.utils.PayRadioPurified
             android:id="@+id/pay_p2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            pay:pay_radio="@drawable/radio"
-            pay:pay_logo="@drawable/pay_wechat"
-            pay:pay_title="微信支付"
-            pay:pay_desc="支持微信账号支付"
+            pay:radio="@drawable/radio"
+            pay:logo1="@drawable/pay_wechat"
+            pay:title1="微信支付"
+            pay:desc="支持微信账号支付"
             />
     </cn.elife.utils.PayRadioGroup>
     <Button
@@ -95,6 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="确认支付"
+        android:background="@color/whole_text_redColor"
         android:textSize="@dimen/whole_titleTextSize"/>
 
 </LinearLayout>
+

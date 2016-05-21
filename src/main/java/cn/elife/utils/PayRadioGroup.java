@@ -9,13 +9,9 @@ import android.widget.LinearLayout;
 
 import cn.elife.elife.R;
 
-/**
- * Author：张凯  on 2016/5/20 09:20
- * Blog: bukevin@github.io
- */
 public class PayRadioGroup extends LinearLayout {
 
-    // holds the checked id; the selection is empty by default
+	// holds the checked id; the selection is empty by default
     private int mCheckedId = -1;
     // tracks children radio buttons checked state
     private PayRadioPurified.OnCheckedChangeListener mChildOnCheckedChangeListener;
@@ -49,7 +45,7 @@ public class PayRadioGroup extends LinearLayout {
             mCheckedId = value;
         }
 
-        final int index = attributes.getInt(R.styleable.PayRidioGroup_orientation, LinearLayout.VERTICAL);
+        final int index = attributes.getInt(R.styleable.PayRidioGroup_orientation,LinearLayout.VERTICAL);
         setOrientation(index);
 
         attributes.recycle();
@@ -185,7 +181,7 @@ public class PayRadioGroup extends LinearLayout {
      */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new PayRadioGroup.LayoutParams(getContext(), attrs);
+        return new LayoutParams(getContext(), attrs);
     }
 
     /**
@@ -193,13 +189,14 @@ public class PayRadioGroup extends LinearLayout {
      */
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof PayRadioGroup.LayoutParams;
+        return p instanceof LayoutParams;
     }
 
     @Override
     protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     }
+
 
     public static class LayoutParams extends LinearLayout.LayoutParams {
         /**
@@ -209,9 +206,6 @@ public class PayRadioGroup extends LinearLayout {
             super(c, attrs);
         }
 
-        /**
-         * {@inheritDoc}
-         */
         public LayoutParams(int w, int h) {
             super(w, h);
         }
@@ -239,8 +233,8 @@ public class PayRadioGroup extends LinearLayout {
 
         /**
          * <p>Fixes the child's width to
-         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} and the child's
-         * height to  {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT}
+         * {@link ViewGroup.LayoutParams#WRAP_CONTENT} and the child's
+         * height to  {@link ViewGroup.LayoutParams#WRAP_CONTENT}
          * when not specified in the XML file.</p>
          *
          * @param a the styled attributes set
@@ -249,14 +243,14 @@ public class PayRadioGroup extends LinearLayout {
          */
         @Override
         protected void setBaseAttributes(TypedArray a,
-                                         int widthAttr, int heightAttr) {
+                int widthAttr, int heightAttr) {
 
             if (a.hasValue(widthAttr)) {
                 width = a.getLayoutDimension(widthAttr, "layout_width");
             } else {
                 width = WRAP_CONTENT;
             }
-
+            
             if (a.hasValue(heightAttr)) {
                 height = a.getLayoutDimension(heightAttr, "layout_height");
             } else {
@@ -304,8 +298,8 @@ public class PayRadioGroup extends LinearLayout {
      * hierarchy change listener without preventing the user to setup his.</p>
      */
     private class PassThroughHierarchyChangeListener implements
-            ViewGroup.OnHierarchyChangeListener {
-        private ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+            OnHierarchyChangeListener {
+        private OnHierarchyChangeListener mOnHierarchyChangeListener;
 
         /**
          * {@inheritDoc}
@@ -342,4 +336,3 @@ public class PayRadioGroup extends LinearLayout {
     }
 
 }
-

@@ -51,6 +51,13 @@
         </activity>
         <activity android:name=".UpdateAddressActivity">
         </activity>
+        <activity android:name=".UserMessageActivity">
+
+        </activity>
+        <activity android:name=".UsermessagePasswordActivity">
+        </activity>
+        <activity android:name=".UserBarcodeActivity">
+        </activity>
         <activity android:name=".PayActivity">
         </activity>
     </application>
