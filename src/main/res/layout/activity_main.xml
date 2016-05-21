@@ -7,13 +7,13 @@
     android:orientation="vertical"
     tools:context="cn.elife.elife.MainActivity">
     
-    <!--&lt;!&ndash;分为上下连个部分;&ndash;&gt;-->
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        layout="@layout/top_navigate_search"
-        ></include>
+    <!--&lt;!&ndash;&lt;!&ndash;分为上下连个部分;&ndash;&gt;&ndash;&gt;-->
+    <!--<include-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--layout="@layout/top_navigate_search"-->
+        <!--&gt;</include>-->
 
 
     <!--上部分为界面显示的主体部分-->

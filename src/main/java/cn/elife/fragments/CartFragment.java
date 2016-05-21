@@ -6,21 +6,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.elife.adapters.CartAdapter;
 import cn.elife.bean.CartGoods;
-import cn.elife.elife.PayActivity;
 import cn.elife.elife.R;
 
 /**
@@ -45,8 +41,8 @@ public class CartFragment extends Fragment {
         balanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), PayActivity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(getContext(), PayActivity.class);
+//                startActivity(intent);
             }
         });
         return mView;
