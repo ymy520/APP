@@ -54,7 +54,7 @@
         <activity android:name=".UserMessageActivity">
 
         </activity>
-        <activity android:name=".UsermessagePasswordActivity">
+        <activity android:name=".UserPassActivity">
         </activity>
         <activity android:name=".UserBarcodeActivity">
         </activity>
