@@ -67,4 +67,16 @@ public class Merchant {
     public void setNums(int nums) {
         this.nums = nums;
     }
+
+    @Override
+    public String toString() {
+        return "Merchant{" +
+                "id='" + id + '\'' +
+                ", url='" + url + '\'' +
+                ", title='" + title + '\'' +
+                ", rateBar=" + rateBar +
+                ", begin='" + begin + '\'' +
+                ", nums=" + nums +
+                '}';
+    }
 }

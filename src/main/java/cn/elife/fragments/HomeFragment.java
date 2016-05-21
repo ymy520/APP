@@ -1,13 +1,9 @@
 package cn.elife.fragments;
 
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,9 +22,7 @@ import cn.elife.adapters.homeShowAllAdapter;
 import cn.elife.adapters.homeShowBannerAdapter;
 import cn.elife.adapters.homeShowTypeAdapter;
 import cn.elife.bean.Goods;
-import cn.elife.elife.MainActivity;
 import cn.elife.elife.R;
-import cn.elife.elife.SnacksActivity;
 
 /**
  * TODO- 在页面没有获取焦点的时候关闭自动轮播
@@ -120,7 +114,7 @@ public class HomeFragment extends Fragment {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-             SnacksActivity.actionStart(getActivity());
+                show("我点击了GridView中的" + mTypeList.get(position).getTitle());
             }
         });
 

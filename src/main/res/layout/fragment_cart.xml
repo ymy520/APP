@@ -73,5 +73,25 @@
             android:layout_marginRight="4dp"
             android:background="@color/whole_baseColor"
             android:text="@string/cart_balance"/>
+        <TextView
+            android:id="@+id/cart_Total"
+            android:layout_toLeftOf="@id/cart_balance"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="0"
+            android:textColor="@color/whole_text_redColor"/>
+        <TextView
+            android:layout_toLeftOf="@id/cart_Total"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总计：￥"
+            android:textSize="18sp"
+            android:textColor="@color/whole_text_redColor"/>
+
+
     </android.support.percent.PercentRelativeLayout>
 </LinearLayout>
