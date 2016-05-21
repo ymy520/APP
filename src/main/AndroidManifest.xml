@@ -40,6 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
         <activity
             android:name=".SearchActivity"
@@ -48,6 +49,7 @@
         <activity android:name=".MyCenterActivity">
         </activity>
         <activity android:name=".AddressActivity">
+
         </activity>
         <activity android:name=".UpdateAddressActivity">
         </activity>

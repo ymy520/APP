@@ -34,4 +34,7 @@
     <!--局部色-->
     <!--加入购物车背景颜色-->
     <color name="part_bg_addCart">#FF9900</color>
+
+    <!--商家分类背景红色-->
+    <color name="merchant_category_bg_red">#ff0000</color>
 </resources>

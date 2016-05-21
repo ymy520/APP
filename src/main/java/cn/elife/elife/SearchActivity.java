@@ -137,14 +137,16 @@ public class SearchActivity extends AppCompatActivity implements MscInterface{
     }
     //开始调用工具类
     private void showMSC() {
-        MSCUtils.getVoiceReslut(this);
+        MSCUtils mMSCUtils=new MSCUtils();
+        mMSCUtils.getVoiceReslut(this);
     }
 
     //这里搜索预处理相关逻辑
     private void processMSC(List<String> chineseWordList) {
         String showStr = chineseWordList.get(0);
         String[] searchArr = chineseWordList.get(1).split(",");
-        Log.d(TAG, "分词结果：" + Arrays.toString(searchArr));
+        Log.e(TAG, "分词结果：" + Arrays.toString(searchArr));
+        Log.e(TAG, "结果：" + showStr);
         mAsEtSearch.setText(showStr);
         //开始搜索，搜索用searchArr
         processSearch(searchArr);
