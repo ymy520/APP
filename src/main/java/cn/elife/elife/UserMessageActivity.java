@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,7 +77,7 @@ public class UserMessageActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void modifyPassword() {
-        Intent intent=new Intent(UserMessageActivity.this,UsermessagePasswordActivity.class);
+        Intent intent=new Intent(UserMessageActivity.this,UserPassActivity.class);
         startActivity(intent);
     }
 
