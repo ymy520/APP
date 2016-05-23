@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="cn.elife.elife">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 科大讯飞相关权限 -->
     <!-- 连接网络权限，用于执行云端语音能力 -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -41,21 +40,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
         <activity
             android:name=".SearchActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
         <activity android:name=".AddressActivity"
                   android:launchMode="singleTask">
+            </activity>
+
+        <activity android:name=".MyCenterActivity">
 
         </activity>
         <activity android:name=".UpdateAddressActivity">
+        </activity>
+        <activity android:name=".UserMessageActivity">
 
         </activity>
-        <activity android:name=".SnacksActivity">
-
+        <activity android:name=".UserPassActivity">
+        </activity>
+        <activity android:name=".UserBarcodeActivity">
+        </activity>
+        <activity android:name=".PayActivity">
         </activity>
     </application>
 

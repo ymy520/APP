@@ -4,11 +4,31 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/search"
+        ></include>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp"
+    android:background="@color/snacksdiver"
+        />
+
+
     <!--底部猜你喜欢模块采用一个自定义布局方式-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_srl_content">
 
     <cn.elife.widget.NoScrollScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/home_nssv_content"
         android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,24 +50,24 @@
                 android:layout_height="100dp"
                 android:id="@+id/home_vp_bunner"></android.support.v4.view.ViewPager>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="猜你喜欢"
+                android:textSize="28dp"
+                android:background="#7c64e1"
+                android:gravity="center_vertical|left"
+                />
 
-            <!--<android.support.v7.widget.RecyclerView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:id="@+id/home_rv_showAll"></android.support.v7.widget.RecyclerView>-->
-
-            <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-                android:id="@+id/home_plmrv_showAll"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:background="#ea63da"
-                ></com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
-
-
+                android:background="#33ab31"
+                android:id="@+id/home_rv_showAll"></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
     </cn.elife.widget.NoScrollScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
