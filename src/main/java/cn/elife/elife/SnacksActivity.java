@@ -118,9 +118,9 @@ public class SnacksActivity extends Activity {
         mImageLoader = ImageLoader.getInstance();
 
         options = new DisplayImageOptions.Builder()
-                .showStubImage(R.drawable.snackbangong)
-                .showImageForEmptyUri(R.drawable.snackbangong) // empty URI时显示的图片
-                .showImageOnFail(R.drawable.snackbangong) // 不是图片文件 显示图片
+                .showStubImage(R.drawable.snacks01)
+                .showImageForEmptyUri(R.drawable.snacks01) // empty URI时显示的图片
+                .showImageOnFail(R.drawable.snacks01) // 不是图片文件 显示图片
                 .cacheInMemory(true).cacheOnDisc(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .imageScaleType(ImageScaleType.EXACTLY).build();
@@ -223,17 +223,17 @@ public class SnacksActivity extends Activity {
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mList = new ArrayList<>();
-        SnacksListData d1 = new SnacksListData("松软甜美QQ糖100g/袋1", 10.5, R.drawable.snacks, "销量：1000");
-        SnacksListData d2 = new SnacksListData("松软甜美QQ糖100g/袋2", 10.5, R.drawable.snacks,  "销量：1000");
-        SnacksListData d3 = new SnacksListData("松软甜美QQ糖100g/袋3", 10.5, R.drawable.snacks,  "销量：1000");
-        SnacksListData d4 = new SnacksListData("松软甜美QQ糖100g/袋4", 10.5, R.drawable.snacks, "销量：1000");
-        SnacksListData d5 = new SnacksListData("松软甜美QQ糖100g/袋5", 10.5, R.drawable.snacks, "销量：1000");
-        SnacksListData d6 = new SnacksListData("松软甜美QQ糖100g/袋6", 10.5, R.drawable.snacks, "销量：1000");
-        SnacksListData d7 = new SnacksListData("松软甜美QQ糖100g/袋7", 10.5, R.drawable.snacks, "销量：1000");
-        SnacksListData d8 = new SnacksListData("松软甜美QQ糖100g/袋8", 10.5, R.drawable.snacks,  "销量：1000");
-        SnacksListData d9 = new SnacksListData("松软甜美QQ糖100g/袋9", 10.5, R.drawable.snacks,  "销量：1000");
-        SnacksListData d10 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks,  "销量：1000");
-        SnacksListData d11 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacks,  "销量：1000");
+        SnacksListData d1 = new SnacksListData("松软甜美QQ糖100g/袋1", 10.5, R.drawable.snacksa, "销量：1000");
+        SnacksListData d2 = new SnacksListData("松软甜美QQ糖100g/袋2", 10.5, R.drawable.snacksc,  "销量：1000");
+        SnacksListData d3 = new SnacksListData("松软甜美QQ糖100g/袋3", 10.5, R.drawable.snacksd,  "销量：1000");
+        SnacksListData d4 = new SnacksListData("松软甜美QQ糖100g/袋4", 10.5, R.drawable.snacksf, "销量：1000");
+        SnacksListData d5 = new SnacksListData("松软甜美QQ糖100g/袋5", 10.5, R.drawable.snacksa, "销量：1000");
+        SnacksListData d6 = new SnacksListData("松软甜美QQ糖100g/袋6", 10.5, R.drawable.snacksc, "销量：1000");
+        SnacksListData d7 = new SnacksListData("松软甜美QQ糖100g/袋7", 10.5, R.drawable.snacksd, "销量：1000");
+        SnacksListData d8 = new SnacksListData("松软甜美QQ糖100g/袋8", 10.5, R.drawable.snacksf,  "销量：1000");
+        SnacksListData d9 = new SnacksListData("松软甜美QQ糖100g/袋9", 10.5, R.drawable.snacksa,  "销量：1000");
+        SnacksListData d10 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacksc,  "销量：1000");
+        SnacksListData d11 = new SnacksListData("松软甜美QQ糖100g/袋", 10.5, R.drawable.snacksd,  "销量：1000");
         mList.add(d1);
         mList.add(d2);
         mList.add(d3);
@@ -380,7 +380,7 @@ public class SnacksActivity extends Activity {
         SnacksBanner adDomain = new SnacksBanner();
         adDomain.setId("108078");
         adDomain.setImgUrl
-                ("drawable://" + R.drawable.snackchihuo);
+                ("drawable://" + R.drawable.snacks01);
 
         adDomain.setAd(false);
         adList.add(adDomain);
@@ -388,28 +388,28 @@ public class SnacksActivity extends Activity {
         SnacksBanner adDomain2 = new SnacksBanner();
         adDomain.setId("108078");
         adDomain2.setImgUrl
-                ("drawable://" + R.drawable.snacknvshen);
+                ("drawable://" + R.drawable.snacks02);
         adDomain2.setAd(false);
         adList.add(adDomain2);
 
         SnacksBanner adDomain3 = new SnacksBanner();
         adDomain.setId("108078");
         adDomain3.setImgUrl
-                ("drawable://" + R.drawable.snackbangong);
+                ("drawable://" + R.drawable.snacks03);
         adDomain3.setAd(false);
         adList.add(adDomain3);
 
         SnacksBanner adDomain4 = new SnacksBanner();
         adDomain.setId("108078");
         adDomain4.setImgUrl
-                ("drawable://" + R.drawable.snackzaocan);
+                ("drawable://" + R.drawable.snacks04);
         adDomain4.setAd(false);
         adList.add(adDomain4);
 
         SnacksBanner adDomain5 = new SnacksBanner();
         adDomain.setId("108078");
         adDomain5.setImgUrl
-                ("drawable://" + R.drawable.snackchihuo);
+                ("drawable://" + R.drawable.snacks05);
         adDomain5.setAd(false);
         adList.add(adDomain5);
         return adList;
