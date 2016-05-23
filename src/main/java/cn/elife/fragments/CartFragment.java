@@ -10,13 +10,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.RadioButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.elife.adapters.CartAdapter;
 import cn.elife.bean.CartGoods;
+import cn.elife.elife.PayActivity;
 import cn.elife.elife.R;
 
 /**
@@ -29,8 +30,7 @@ public class CartFragment extends Fragment {
     private ListView mListView;
     private CartGoods cartGoods;
     private CheckBox mChooseCheckBox;
-    private TextView totalTextView;
-    private Button balanceButton;
+    private Button cartButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView=inflater.inflate(R.layout.fragment_cart,null);
@@ -38,11 +38,11 @@ public class CartFragment extends Fragment {
         initData();
         mCartAdapter=new CartAdapter(getContext(),mList);
         mListView.setAdapter(mCartAdapter);
-        balanceButton.setOnClickListener(new View.OnClickListener() {
+        cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(getContext(), PayActivity.class);
-//                startActivity(intent);
+                Intent intent=new Intent(getContext(), PayActivity.class);
+                startActivity(intent);
             }
         });
         return mView;
@@ -51,8 +51,7 @@ public class CartFragment extends Fragment {
     private void initViews() {
         mListView= (ListView) mView.findViewById(R.id.cart_listView);
         mChooseCheckBox= (CheckBox) mView.findViewById(R.id.cart_chooseCheckbox);
-        totalTextView= (TextView) mView.findViewById(R.id.cart_Total);
-        balanceButton= (Button) mView.findViewById(R.id.cart_balance);
+        cartButton= (Button) mView.findViewById(R.id.cart_balance);
     }
 
     private void initData() {
@@ -86,7 +85,6 @@ public class CartFragment extends Fragment {
     }
     // 刷新listview和TextView的显示
     private void dataChanged() {
-        totalTextView.setText(mCartAdapter.getTotal()+"");
         // 通知listView刷新
         mCartAdapter.notifyDataSetChanged();
     }
