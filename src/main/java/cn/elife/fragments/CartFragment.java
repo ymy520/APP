@@ -1,37 +1,36 @@
+package cn.elife.fragments;
 
-        package cn.elife.fragments;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ListView;
+import android.widget.TextView;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.Button;
-        import android.widget.CheckBox;
-        import android.widget.CompoundButton;
-        import android.widget.ListView;
-        import android.widget.RadioButton;
+import java.util.ArrayList;
+import java.util.List;
 
-        import java.util.ArrayList;
-        import java.util.List;
-
-        import cn.elife.adapters.CartAdapter;
-        import cn.elife.bean.CartGoods;
-        import cn.elife.elife.PayActivity;
-        import cn.elife.elife.R;
+import cn.elife.adapters.CartAdapter;
+import cn.elife.bean.CartGoods;
+import cn.elife.elife.R;
 
 /**
  * Created by Bill on 2016/5/2.
  */
 public class CartFragment extends Fragment {
-        private View mView;
+    private View mView;
     private List<CartGoods> mList;
     private CartAdapter mCartAdapter;
     private ListView mListView;
     private CartGoods cartGoods;
     private CheckBox mChooseCheckBox;
-    private Button cartButton;
+    private TextView totalTextView;
+    private Button balanceButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView=inflater.inflate(R.layout.fragment_cart,null);
@@ -39,11 +38,11 @@ public class CartFragment extends Fragment {
         initData();
         mCartAdapter=new CartAdapter(getContext(),mList);
         mListView.setAdapter(mCartAdapter);
-        cartButton.setOnClickListener(new View.OnClickListener() {
+        balanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), PayActivity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(getContext(), PayActivity.class);
+//                startActivity(intent);
             }
         });
         return mView;
@@ -52,7 +51,8 @@ public class CartFragment extends Fragment {
     private void initViews() {
         mListView= (ListView) mView.findViewById(R.id.cart_listView);
         mChooseCheckBox= (CheckBox) mView.findViewById(R.id.cart_chooseCheckbox);
-        cartButton= (Button) mView.findViewById(R.id.cart_balance);
+        totalTextView= (TextView) mView.findViewById(R.id.cart_Total);
+        balanceButton= (Button) mView.findViewById(R.id.cart_balance);
     }
 
     private void initData() {
@@ -86,11 +86,10 @@ public class CartFragment extends Fragment {
     }
     // 刷新listview和TextView的显示
     private void dataChanged() {
+        totalTextView.setText(mCartAdapter.getTotal()+"");
         // 通知listView刷新
         mCartAdapter.notifyDataSetChanged();
     }
 
 
 }
-
-

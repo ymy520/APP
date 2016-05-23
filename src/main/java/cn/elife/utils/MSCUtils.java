@@ -41,7 +41,7 @@ public class MSCUtils {
 
     public void getVoiceReslut(final MscInterface mMscInterface) {
        this.mMscInterface = mMscInterface;
-        //1.创建RecognizerDialog对象,注意(Context) mMscInterface
+        //1.创建RecognizerDialog对象
         RecognizerDialog mDialog = new RecognizerDialog((Context) mMscInterface, new InitListener() {
             @Override
             public void onInit(int i) {

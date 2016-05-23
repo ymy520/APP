@@ -31,9 +31,6 @@ public class NoScrollScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent e) {
-        /**
-         * 用户触摸屏幕足以产生滑动效果就拦截这个事件，交由本层onTouchEvent事件进行处理
-         */
         int action = e.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:

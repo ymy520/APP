@@ -8,6 +8,7 @@
     >
 
     <ImageView
+        android:id="@+id/ftb_iv_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_centerVertical="true"
@@ -17,6 +18,7 @@
         android:src="@mipmap/actionbar_back_normal"/>
 
    <TextView
+       android:id="@+id/ftb_tv_title"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_centerInParent="true"
@@ -26,6 +28,7 @@
        android:text="商家"/>
 
     <ImageView
+        android:id="@+id/ftb_iv_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
