@@ -1,4 +1,4 @@
-package cn.elife.elife;
+﻿package cn.elife.elife;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import cn.elife.fragments.MyFragment;
 import cn.elife.fragments.SocialFragment;
 
 public class MainActivity extends AppCompatActivity {
+//////// hello world!
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
