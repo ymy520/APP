@@ -1,10 +1,13 @@
 package cn.elife.elife;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     RadioGroup mRadioGroup;
     RadioButton bottom_br_home,bottom_br_merchant,bottom_br_social,bottom_br_cart,bottom_br_my;
-    //EditText top_et_search;
+    EditText top_et_search;
 
 
 
@@ -188,8 +191,8 @@ public class MainActivity extends AppCompatActivity {
         bottom_br_cart = (RadioButton) findViewById(R.id.bottom_rb_cart);
         bottom_br_my = (RadioButton) findViewById(R.id.bottom_rb_my);
 
-       // top_et_search = (EditText) findViewById(R.id.tps_et_searchcontent);
-       //添加，为了跳转到搜索页面
+//       top_et_search = (EditText) findViewById(R.id.tps_et_searchcontent);
+//       //添加，为了跳转到搜索页面
 //        top_et_search.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

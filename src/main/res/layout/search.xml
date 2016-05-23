@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <!--头部搜索-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/as_iv_back"
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:src="@drawable/map_ic_maps_indicator_search_position"/>
+
+        <EditText
+            android:id="@+id/as_et_search"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_margin="10dp"
+            android:layout_weight="5"
+            android:background="@drawable/shape_main_topbar_edittext"
+            android:drawableLeft="@drawable/sp_search_press"
+            android:drawableRight="@drawable/ic_home_voice_search_holo"
+            android:hint=" 搜索你想找的商品"
+            android:textColorHint="@color/whole_text_blackSecond"
+            android:textSize="@dimen/whole_thirdTextSize"
+            />
+
+        <ImageView
+            android:id="@+id/as_btn_search"
+            android:layout_width="0dp"
+            android:layout_height="22dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/im_msg_icon"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

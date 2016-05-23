@@ -18,7 +18,6 @@
 
         <Spinner
             android:id="@+id/fm_sp_sp1"
-            android:background="@color/merchant_category_bg_red"
             style="@style/style_spinner">
         </Spinner>
         <!--这个是spinner之间的分割线-->
@@ -48,17 +47,9 @@
 
 
     <!--核心数据开始-->
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/fm_srl_main"
+    <ListView
+        android:id="@+id/fm_lv_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/whole_white">
-
-        <ListView
-            android:id="@+id/fm_lv_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/whole_white">
-        </ListView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        android:layout_height="match_parent">
+    </ListView>
 </LinearLayout>

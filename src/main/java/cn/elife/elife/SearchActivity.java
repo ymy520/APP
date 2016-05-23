@@ -14,6 +14,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.iflytek.cloud.InitListener;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.ui.RecognizerDialog;
+import com.iflytek.cloud.ui.RecognizerDialogListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,10 +30,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.elife.adapters.SearchActivityAdapter;
-import cn.elife.interfaces.MscInterface;
-import cn.elife.utils.MSCUtils;
+import cn.elife.bean.Cw;
+import cn.elife.bean.Sentence;
+import cn.elife.bean.Ws;
 
-public class SearchActivity extends AppCompatActivity implements MscInterface{
+public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
     @Bind(R.id.as_iv_back)
@@ -135,27 +144,65 @@ public class SearchActivity extends AppCompatActivity implements MscInterface{
                 break;
         }
     }
-    //开始调用工具类
+
+    //这里处理语音识别
     private void showMSC() {
-        MSCUtils mMSCUtils=new MSCUtils();
-        mMSCUtils.getVoiceReslut(this);
+        final List<String> chineseWordList = new ArrayList<String>();//分词结果集
+        //1.创建RecognizerDialog对象
+        RecognizerDialog mDialog = new RecognizerDialog(this, new InitListener() {
+            @Override
+            public void onInit(int i) {
+
+            }
+        });
+        //2.设置accent、 language等参数
+        mDialog.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
+        mDialog.setParameter(SpeechConstant.ACCENT, "mandarin");
+        //若要将UI控件用于语义理解，必须添加以下参数设置，设置之后onResult回调返回将是语义理解
+        //结果
+        // mDialog.setParameter("asr_sch", "1");
+        // mDialog.setParameter("nlp_version", "2.0");
+        //3.设置回调接口
+        mDialog.setListener(new RecognizerDialogListener() {
+
+            @Override
+            public void onResult(RecognizerResult recognizerResult, boolean b) {
+                String Str = "";//最终形成的句子
+                String str2 = "分词结果：";//要做的分词效果
+                String jsonObg = recognizerResult.getResultString();
+                Gson gson = new Gson();
+                Sentence sentence = gson.fromJson(jsonObg, new Sentence().getClass());
+                List<Ws> wsList = sentence.getWs();
+                for (Ws w : wsList) {
+                    List<Cw> cwList = w.getCw();
+                    for (Cw c : cwList) {
+                        String chineseWord = c.getW();
+                        Str += chineseWord;
+                        str2 += chineseWord + ",";
+                    }
+                }
+                chineseWordList.add(Str);
+                chineseWordList.add(str2);
+                processMSC(chineseWordList);
+            }
+
+            @Override
+            public void onError(SpeechError speechError) {
+
+            }
+        });
+        //4.显示dialog，接收语音输入
+        mDialog.show();
+
     }
 
     //这里搜索预处理相关逻辑
     private void processMSC(List<String> chineseWordList) {
         String showStr = chineseWordList.get(0);
         String[] searchArr = chineseWordList.get(1).split(",");
-        Log.e(TAG, "分词结果：" + Arrays.toString(searchArr));
-        Log.e(TAG, "结果：" + showStr);
+        Log.d(TAG, "分词结果：" + Arrays.toString(searchArr));
         mAsEtSearch.setText(showStr);
         //开始搜索，搜索用searchArr
         processSearch(searchArr);
-    }
-
-
-    //这个是回调函数，用来获取语音的识别结果；返回值为一个List<String>，共两个值，第一个是识别的完整的语句；第二个是识别的分词结果，以“,”隔开，如“今天,你,吃饭,了,吗,?,”
-    @Override
-    public void voice2List(List<String> strList) {
-        processMSC(strList);
     }
 }

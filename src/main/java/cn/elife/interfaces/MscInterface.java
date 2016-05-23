@@ -1,7 +1,5 @@
 package cn.elife.interfaces;
 
-import android.content.Context;
-
 import java.util.List;
 
 /**

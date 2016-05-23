@@ -47,25 +47,25 @@ public class MerchantFragmentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        MyViewHolder viewHolder = null;
-        if (convertView == null) {
-            convertView = mLayoutInflater.inflate(R.layout.item_fragment_mechant, null);
-            viewHolder = new MyViewHolder(convertView);
+        ViewHolder viewHolder=null;
+        if(convertView==null){
+            convertView=  mLayoutInflater.inflate(R.layout.item_fragment_mechant, null);
+            viewHolder=new ViewHolder(convertView);
             convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (MyViewHolder) convertView.getTag();
+        }else{
+            viewHolder= (ViewHolder) convertView.getTag();
         }
         //开始填充数据
-        Merchant merchant = mMerchantList.get(position);
+        Merchant merchant=mMerchantList.get(position);
         viewHolder.mIfmIvImg.setImageResource(Integer.parseInt(merchant.getUrl()));
         viewHolder.mIfmTvTitle.setText(merchant.getTitle());
         viewHolder.mIfmRbScore.setRating(merchant.getRateBar());
         viewHolder.mIfmTvBegin.setText(merchant.getBegin());
-        viewHolder.mIfmTvNums.setText(merchant.getNums() + "");
+        viewHolder.mIfmTvNums.setText(merchant.getNums()+"");
         return convertView;
     }
 
-    public  class MyViewHolder  {
+    static class ViewHolder {
         @Bind(R.id.ifm_iv_img)
         ImageView mIfmIvImg;
         @Bind(R.id.ifm_tv_title)
@@ -77,9 +77,8 @@ public class MerchantFragmentAdapter extends BaseAdapter {
         @Bind(R.id.ifm_tv_nums)
         TextView mIfmTvNums;
 
-        public MyViewHolder(View view) {
+        ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
-
 }

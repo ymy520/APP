@@ -25,6 +25,8 @@
     <!--字体颜色次级选项颜色，包括：提示文字（hint）、销量、“历史记录”四个字、等次级选项的字体颜色-->
     <color name="whole_text_blackSecond">#bfbdbd</color>
 
+    <color name="snacksbg">#f1f0f0</color>
+
     <!--红色的字体颜色-->
     <color name="whole_text_redColor">#FF0000</color>
     <!--白色的字体颜色-->
@@ -40,4 +42,6 @@
 
     <!--选择地区相关-->
     <color name="province_line_border">#C7C7C7</color>
+    <!--零食分割线颜色-->
+    <color name="snacksdiver">#c9c9c9</color>
 </resources>
