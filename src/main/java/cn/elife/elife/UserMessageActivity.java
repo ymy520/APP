@@ -71,9 +71,15 @@ public class UserMessageActivity extends AppCompatActivity implements View.OnCli
                 modifyEmail();
                 break;
             case R.id.user_mycode:
-
+                barcode();
                 break;
         }
+    }
+
+    private void barcode() {
+        Intent intent=new Intent(UserMessageActivity.this,UserBarcodeActivity.class);
+        intent.putExtra("code",modifyNameText.getText());
+        startActivity(intent);
     }
 
     private void modifyPassword() {
