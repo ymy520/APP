@@ -1,9 +1,11 @@
 package cn.elife.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by wgyscsf on 2016/5/18.
  */
-public class Address {
+public class Address implements Serializable{
     private String name;
     private String phone;
     private String address;

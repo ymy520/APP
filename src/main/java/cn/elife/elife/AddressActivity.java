@@ -76,9 +76,6 @@ public class AddressActivity extends AppCompatActivity {
         });
     }
 
-    //编辑收货地址
-    private void editAddess(Address address) {
-    }
 
     @OnClick({R.id.ftb_iv_back, R.id.ftb_tv_title, R.id.ftb_iv_right, R.id.aa_tv_add})
     public void onClick(View view) {
@@ -94,9 +91,17 @@ public class AddressActivity extends AppCompatActivity {
                 break;
         }
     }
-
+    //添加新的收货地址
     private void addAddress() {
         Intent intent=new Intent(AddressActivity.this,UpdateAddressActivity.class);
         startActivity(intent);
     }
+
+    //编辑收货地址,核心逻辑
+    private void editAddess(Address address) {
+        Intent intent=new Intent(AddressActivity.this,UpdateAddressActivity.class);
+        intent.putExtra("address",address);
+        startActivity(intent);
+    }
+
 }

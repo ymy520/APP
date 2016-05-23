@@ -44,9 +44,11 @@
         <activity
             android:name=".SearchActivity"
             android:windowSoftInputMode="adjustPan">
+
         </activity>
 
-        <activity android:name=".AddressActivity">
+        <activity android:name=".AddressActivity"
+                  android:launchMode="singleTask">
 
         </activity>
         <activity android:name=".UpdateAddressActivity">
