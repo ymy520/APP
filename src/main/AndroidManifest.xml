@@ -26,7 +26,6 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <!-- 科大讯飞相关权限结束 -->
-
     <application
         android:name="cn.elife.application.MyAppliaction"
         android:allowBackup="true"
@@ -42,7 +41,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
         <activity
             android:name=".SearchActivity"
@@ -51,6 +49,9 @@
         <activity android:name=".MyCenterActivity">
         </activity>
         <activity android:name=".AddressActivity">
+
+        <activity android:name=".AddressActivity"
+                  android:launchMode="singleTask">
 
         </activity>
         <activity android:name=".UpdateAddressActivity">
