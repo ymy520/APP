@@ -4,6 +4,7 @@
               android:background="@color/whole_baseColor"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+
     <!--头部分为两种布局，这是所搜布局，另外一个是导航布局-->
 
     <LinearLayout
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/sp_search_press"
-            android:drawableRight="@drawable/voice"
+            android:drawableRight="@drawable/abs__ic_voice_search"
             android:textColorHint="@color/whole_text_blackSecond"
             android:textColor="@color/whole_text_blackFirst"
             android:hint="尽情搜索吧"

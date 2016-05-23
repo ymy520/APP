@@ -6,9 +6,9 @@
 
         <!--修改在应用打开状态下，的一些系统的配置（电量、时间）-->
         <item name="colorPrimaryDark">@color/whole_baseColor</item>
-        <!-- <item name="colorPrimary">@color/colorPrimary</item>
-         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-         <item name="colorAccent">@color/colorAccent</item>-->
+       <!-- <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
     <!--底部导航菜单的单选按钮的样式-->
@@ -84,31 +84,4 @@
         <item name="android:background">@color/whole_divider</item>
     </style>
 
-    <!-- start:自定义支付界面 -->
-    <declare-styleable name="PayRidioButton">
-        <attr name="pay_title" format="reference|string"/>
-        <attr name="pay_logo" format="reference|color"/>
-        <attr name="pay_desc" format="reference|string"/>
-        <attr name="pay_checked" format="boolean"/>
-        <attr name="pay_radio" format="reference"/>
-    </declare-styleable>
-
-    <!-- Standard orientation constant. -->
-    <attr name="orientation">
-        <!-- Defines an horizontal widget. -->
-        <enum name="horizontal" value="0"/>
-        <!-- Defines a vertical widget. -->
-        <enum name="vertical" value="1"/>
-    </attr>
-
-    <declare-styleable name="PayRidioGroup">
-        <!-- The id of the child radio button that should be checked by default
-             within this radio group. -->
-        <attr name="checkedButton" format="integer"/>
-        <!-- Should the radio group be a column or a row?  Use "horizontal"
-             for a row, "vertical" for a column.  The default is
-             vertical. -->
-        <attr name="orientation"/>
-    </declare-styleable>
-    <!-- End -->
 </resources>

@@ -1,30 +1,31 @@
-package cn.elife.fragments;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ListView;
-import android.widget.RadioButton;
+        package cn.elife.fragments;
 
-import java.util.ArrayList;
-import java.util.List;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.support.v4.app.Fragment;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.CheckBox;
+        import android.widget.CompoundButton;
+        import android.widget.ListView;
+        import android.widget.RadioButton;
 
-import cn.elife.adapters.CartAdapter;
-import cn.elife.bean.CartGoods;
-import cn.elife.elife.PayActivity;
-import cn.elife.elife.R;
+        import java.util.ArrayList;
+        import java.util.List;
+
+        import cn.elife.adapters.CartAdapter;
+        import cn.elife.bean.CartGoods;
+        import cn.elife.elife.PayActivity;
+        import cn.elife.elife.R;
 
 /**
  * Created by Bill on 2016/5/2.
  */
 public class CartFragment extends Fragment {
-    private View mView;
+        private View mView;
     private List<CartGoods> mList;
     private CartAdapter mCartAdapter;
     private ListView mListView;
@@ -91,3 +92,5 @@ public class CartFragment extends Fragment {
 
 
 }
+
+
