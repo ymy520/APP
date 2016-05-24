@@ -1,12 +1,10 @@
-package cn.elife.elife;
+﻿package cn.elife.elife;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,6 +16,7 @@ import cn.elife.fragments.MyFragment;
 import cn.elife.fragments.SocialFragment;
 
 public class MainActivity extends AppCompatActivity {
+//////// hello world!
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
