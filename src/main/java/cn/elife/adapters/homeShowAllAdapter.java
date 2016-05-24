@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -54,8 +53,9 @@ public class homeShowAllAdapter extends RecyclerView.Adapter<homeShowAllAdapter.
     }
 
     public void setOnItemClickListener(MyItemClickListener mListener){
-        //给适配器定义布局监听事件
+        //给适配器定义布局监听事件，，，相当于这里是初始化
         this.mOnClickListener = mListener;
+
     }
 
 
@@ -77,8 +77,7 @@ public class homeShowAllAdapter extends RecyclerView.Adapter<homeShowAllAdapter.
             if(mListener != null){
                 mListener.onItemClick(v,getLayoutPosition());
 
-                Toast.makeText(mShowGoodsView.getContext(), "我是设置在适配器中的点击方法", Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(mShowGoodsView.getContext(), "我是设置在适配器中的点击方法", Toast.LENGTH_SHORT).show();
             }
         }
 

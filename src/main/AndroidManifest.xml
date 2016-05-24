@@ -35,34 +35,32 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
         </activity>
         <activity
             android:name=".SearchActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".AddressActivity"
-                  android:launchMode="singleTask">
-            </activity>
-
+        <activity
+            android:name=".AddressActivity"
+            android:launchMode="singleTask">
+        </activity>
         <activity android:name=".MyCenterActivity">
-
         </activity>
         <activity android:name=".UpdateAddressActivity">
         </activity>
         <activity android:name=".UserMessageActivity">
-
         </activity>
         <activity android:name=".UserPassActivity">
         </activity>
         <activity android:name=".UserBarcodeActivity">
         </activity>
         <activity android:name=".PayActivity">
+        </activity>
+        <activity android:name=".DetailGoodsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

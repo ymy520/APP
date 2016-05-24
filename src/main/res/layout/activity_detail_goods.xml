@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.elife.elife.DetailGoodsActivity">
+
+    <!--商品详情的头部导航-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="55dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:id="@+id/detail_goods_ib_back"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/actionbar_back_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_goods_tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:text="商品详情"/>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="12dp"
+            android:id="@+id/detail_goods_iv_talk"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/mygoods_msg_icon"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:text="nihaoao"
+            android:background="@color/whole_text_blackSecond"/>
+
+    </LinearLayout>
+
+<!--商品详情的主题内容，允许整屏滑动-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_goods_srl_allmessage">
+
+        <!--整屏的图片轮播和商品信息等以添加头部信息的方式，添加进recyclerView中-->
+        
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_goods_rv_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
