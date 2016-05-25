@@ -1,12 +1,17 @@
 package cn.elife.elife;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,12 +40,22 @@ public class DetailGoodsActivity extends AppCompatActivity {
 
     List<GoodsComment> mCommentList;//封装评论的数据集合
     GoodsCommentAdapter mGoodsCommentAdapter;//评论列表的适配器
+    @Bind(R.id.detail_goods_bottom_addcart)
+    TextView mDetailGoodsBottomAddcart;
+    @Bind(R.id.detail_goods_bottom_buynow)
+    TextView mDetailGoodsBottomBuynow;
+
+    PopupWindow mPopupWindow;
+
+    TextView mTextViewConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_goods);
         ButterKnife.bind(this);
+
+        initViews();
 
         initData();
 
@@ -50,28 +65,23 @@ public class DetailGoodsActivity extends AppCompatActivity {
 
     }
 
+    private void initViews() {
+        View popupView = getLayoutInflater().inflate(R.layout.popupwindow_addcart, null);
+
+        mPopupWindow = new PopupWindow(popupView, LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+
+        mTextViewConfirm = (TextView) popupView.findViewById(R.id.detail_goods_confirm);
+
+    }
+
     private void setListener() {
-
-        mGoodsCommentAdapter.setOnClickListener(new GoodsCommentAdapter.onClickListener() {
+        mTextViewConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view, int position) {
-                if(position == 0){
-                    show("我点击了头布局");
-                }
-
-
-                switch (view.getId()) {
-                    case R.id.detail_goods_head_cb_like:
-                        show("我点击了我喜欢");
-                        break;
-                    case R.id.detail_goods_head_iv_share:
-                        show("我点击了分享");
-                        break;
-                    case R.id.detail_goods_head_tv_morecomment:
-                        show("我点击了更多评论");
-                        break;
-                }
-
+            public void onClick(View v) {
+                show("我点击了确定加入购物车的按钮");
             }
         });
 
@@ -105,7 +115,7 @@ public class DetailGoodsActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.detail_goods_ib_back, R.id.detail_goods_iv_talk})
+    @OnClick({R.id.detail_goods_ib_back, R.id.detail_goods_iv_talk, R.id.detail_goods_bottom_addcart, R.id.detail_goods_bottom_buynow})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.detail_goods_ib_back:
@@ -114,12 +124,21 @@ public class DetailGoodsActivity extends AppCompatActivity {
             case R.id.detail_goods_iv_talk:
                 show("我点击了消息");
                 break;
+            case R.id.detail_goods_bottom_addcart:
+                show("我点击了加入购物车");
+                int[] location = new int[2];
+                view.getLocationOnScreen(location);
+                mPopupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0], location[1] - mPopupWindow.getHeight());
+                break;
+            case R.id.detail_goods_bottom_buynow:
+                show("我点击了加入立即购买");
+
+                break;
         }
     }
-
-
 
     private void show(String text) {
         Toast.makeText(DetailGoodsActivity.this, text, Toast.LENGTH_SHORT).show();
     }
+
 }

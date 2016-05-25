@@ -10,62 +10,100 @@
     <!--商品详情的头部导航-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="55dp">
+        android:layout_height="55dp"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="54dp">
 
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:id="@+id/detail_goods_ib_back"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/actionbar_back_normal"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/detail_goods_tv_title"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textSize="18sp"
-            android:text="商品详情"/>
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="12dp"
-            android:id="@+id/detail_goods_iv_talk"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/mygoods_msg_icon"/>
+            <ImageView
+                android:id="@+id/detail_goods_ib_back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/actionbar_back_normal"/>
+
+            <TextView
+                android:id="@+id/detail_goods_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="商品详情"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/detail_goods_iv_talk"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/mygoods_msg_icon"/>
         </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:text="nihaoao"
-            android:background="@color/whole_text_blackSecond"/>
+            android:background="@color/whole_text_blackSecond"
+            android:text="nihaoao"/>
 
     </LinearLayout>
 
-<!--商品详情的主题内容，允许整屏滑动-->
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detail_goods_srl_allmessage">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!--整屏的图片轮播和商品信息等以添加头部信息的方式，添加进recyclerView中-->
-        
-        <android.support.v7.widget.RecyclerView
+
+        <!--商品详情的主题内容，允许整屏滑动-->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/detail_goods_srl_allmessage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/detail_goods_rv_content">
+            android:layout_height="0dp"
+            android:layout_weight="9">
 
-        </android.support.v7.widget.RecyclerView>
+            <!--整屏的图片轮播和商品信息等以添加头部信息的方式，添加进recyclerView中-->
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/detail_goods_rv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/part_bg_addCart"
+                android:id="@+id/detail_goods_bottom_addcart"
+                android:gravity="center"
+                android:text="加入购物车"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/part_bg_buynow"
+                android:gravity="center"
+                android:id="@+id/detail_goods_bottom_buynow"
+                android:text="立即购买"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>

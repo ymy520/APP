@@ -3,10 +3,12 @@ package cn.elife.adapters;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.elife.bean.GoodsComment;
@@ -30,7 +33,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     Context mContext;
     LayoutInflater mInflater;
 
-    onClickListener mOnClickListener;
+    onMyClickListener mOnClickListener;
 
     public GoodsCommentAdapter(List<GoodsComment> mGoodsCommentList, Context mContext) {
         this.mGoodsCommentList = mGoodsCommentList;
@@ -44,7 +47,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         View view = null;
         if (viewType == TYPE_HEAD) {
             view = mInflater.inflate(R.layout.detail_goods_body_head, parent, false);
-            MyHeadViewHolder headViewHolder = new MyHeadViewHolder(view,mOnClickListener);
+            MyHeadViewHolder headViewHolder = new MyHeadViewHolder(view, mOnClickListener);
             return headViewHolder;
         } else if (viewType == TYPE_BODY) {
             view = mInflater.inflate(R.layout.detail_goods_body_item, parent, false);
@@ -60,6 +63,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder instanceof MyHeadViewHolder) {
             //这个是头布局,,,头布局的数据从哪里来呢？？？现写
             final MyHeadViewHolder headViewHolder = (MyHeadViewHolder) holder;
+
             headViewHolder.mTextViewGoodsName.setText("牛肉干");
             headViewHolder.mTextViewGoodsPrice.setText("￥89.0");
             headViewHolder.mTextViewGoodsCount.setText("999");
@@ -67,11 +71,10 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             headViewHolder.mCheckBoxLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    show("单选按钮的状态发生了改变" + isChecked);
-                    if(isChecked){
+                    if (isChecked) {
                         show("我设置了喜欢");
                         headViewHolder.mCheckBoxLike.setChecked(true);
-                    }else{
+                    } else {
                         show("我设置了不喜欢");
                         headViewHolder.mCheckBoxLike.setChecked(false);
                     }
@@ -85,12 +88,70 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
             });
 
+            final View view = mInflater.inflate(R.layout.detail_goods_share_type, null);
             headViewHolder.mImageViewShare.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    show("我点击了，更多分享");
+//                    分享，自定义布局---布局不能重复添加，每次添加之前，需要先移除
+                    ViewParent parent = view.getParent();
+                    if(parent != null){
+                        ((ViewGroup) parent).removeView(view);
+                    }
+                    new AlertDialog.Builder(mContext)
+                            .setView(view)
+                            .show();
                 }
             });
+//            ViewGroup viewGroup = (ViewGroup) view;
+//            ((ViewGroup) view).removeAllViews();
+
+
+            ImageView mImageViewqq = (ImageView) view.findViewById(R.id.detail_goods_share_qq);
+            ImageView mImageViewsina = (ImageView) view.findViewById(R.id.detail_goods_share_sina);
+            ImageView mImageViewwechat = (ImageView) view.findViewById(R.id.detail_goods_share_wechat);
+
+            mImageViewqq.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    show("我点击了qq");
+                }
+            });
+
+            mImageViewsina.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    show("我点击了sina");
+                }
+            });
+
+            mImageViewwechat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    show("我点击了wechat");
+                }
+            });
+
+//            初始化图片轮播需要的数据
+           List<View> mViewList = new ArrayList<View>();
+            int[] imageId = {
+                    R.drawable.goodsbanner1, R.drawable.goodsbanner2, R.drawable.goodsbanner3,
+            };
+            for (int i = 0; i < imageId.length; i++) {
+                View views =mInflater.inflate(R.layout.home_banner_item, null);
+                ImageView mImageView = (ImageView) views.findViewById(R.id.item_iv_content);
+//                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,250);
+//                mImageView.setLayoutParams(params);
+                mImageView.setImageResource(imageId[i]);
+                mViewList.add(views);
+            }
+
+//            需要在头布局给传入viewpager的数据，，，利用首页的适配器,,,,没有做出来自动轮播的效果
+            homeShowBannerAdapter viewPageAdapter = new homeShowBannerAdapter(mViewList,mContext);
+            headViewHolder.mViewPager.setAdapter(viewPageAdapter);
+            headViewHolder.mViewPager.setCurrentItem(2);
+
+
+
 
 
 
@@ -125,11 +186,10 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public void setOnClickListener(onClickListener onClickListener){
+    public void setOnClickListener(onMyClickListener onClickListener) {
         //这句话有什么用呢？
         this.mOnClickListener = onClickListener;
     }
-
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -151,20 +211,20 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public class MyHeadViewHolder extends RecyclerView.ViewHolder implements onClickListener {
+    public class MyHeadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //        头部布局中的所有控件
-        ViewPager mViewPager;
-        TextView mTextViewGoodsName;
-        TextView mTextViewGoodsPrice;
-        TextView mTextViewGoodsCount;
-        CheckBox mCheckBoxLike;
-        ImageView mImageViewShare;
+        public ViewPager mViewPager;
+        public TextView mTextViewGoodsName;
+        public TextView mTextViewGoodsPrice;
+        public TextView mTextViewGoodsCount;
+        public CheckBox mCheckBoxLike;
+        public ImageView mImageViewShare;
 
-        TextView mTextViewMoreCommnet;
+        public TextView mTextViewMoreCommnet;
 
-        private onClickListener mOnClickListener;
+        private onMyClickListener mOnClickListener;
 
-        public MyHeadViewHolder(View itemView,onClickListener onListener) {
+        public MyHeadViewHolder(View itemView, onMyClickListener onListener) {
             super(itemView);
             mViewPager = (ViewPager) itemView.findViewById(R.id.detail_goods_head_vp_showimage);
             mTextViewGoodsName = (TextView) itemView.findViewById(R.id.detail_goods_head_tv_goodsname);
@@ -196,28 +256,13 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
             });*/
 
-
-
         }
 
         @Override
-        public void onClick(View view, int position) {
-
-            if(mOnClickListener != null){
-                mOnClickListener.onClick(view,getLayoutPosition());
-
-            }
-
-            switch (view.getId()) {
-                case R.id.detail_goods_head_cb_like:
-                    show("我点击了我喜欢");
-                    break;
-                case R.id.detail_goods_head_iv_share:
-                    show("我点击了分享");
-                    break;
-                case R.id.detail_goods_head_tv_morecomment:
-                    show("我点击了更多评论");
-                    break;
+        public void onClick(View v) {
+            if (mOnClickListener != null) {
+                mOnClickListener.onMyClick(v, getLayoutPosition());
+                show("我是设置在适配器中的监听事件，");
             }
         }
     }
@@ -226,9 +271,9 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         Toast.makeText(mContext, text, Toast.LENGTH_SHORT).show();
     }
 
-    public interface onClickListener {
+    public interface onMyClickListener {
         //这两个数据是从哪里来的
-        public void onClick(View view, int position);
+        public void onMyClick(View view, int position);
 
     }
 
