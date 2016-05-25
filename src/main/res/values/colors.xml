@@ -44,4 +44,8 @@
     <color name="province_line_border">#C7C7C7</color>
     <!--零食分割线颜色-->
     <color name="snacksdiver">#c9c9c9</color>
+    <!--radio:订单-->
+    <color name="textDown">#ff0000</color>
+    <color name="textUp">#333</color>
+    <color name="topColor">#EFEEEC</color>
 </resources>

@@ -40,29 +40,31 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
         <activity
             android:name=".SearchActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".AddressActivity"
-                  android:launchMode="singleTask">
-            </activity>
-
-        <activity android:name=".MyCenterActivity">
-
+        <activity
+            android:name=".AddressActivity"
+            android:launchMode="singleTask">
         </activity>
         <activity android:name=".UpdateAddressActivity">
         </activity>
         <activity android:name=".UserMessageActivity">
-
         </activity>
         <activity android:name=".UserPassActivity">
         </activity>
         <activity android:name=".UserBarcodeActivity">
         </activity>
         <activity android:name=".PayActivity">
+        </activity>
+        <activity android:name=".MyOrderActivity">
+        </activity>
+        <activity android:name=".SettingActivity">
+        </activity>
+        <activity android:name=".FeedBackActivity">
+
         </activity>
     </application>
 
