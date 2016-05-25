@@ -72,6 +72,7 @@ public class DetailGoodsActivity extends AppCompatActivity {
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+//        mPopupWindow.setAnimationStyle(R.style.detail_goods_pop_anim);
 
         mTextViewConfirm = (TextView) popupView.findViewById(R.id.detail_goods_confirm);
 
@@ -84,7 +85,6 @@ public class DetailGoodsActivity extends AppCompatActivity {
                 show("我点击了确定加入购物车的按钮");
             }
         });
-
 
     }
 

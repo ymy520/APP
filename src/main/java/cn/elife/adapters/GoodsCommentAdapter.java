@@ -139,6 +139,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             for (int i = 0; i < imageId.length; i++) {
                 View views =mInflater.inflate(R.layout.home_banner_item, null);
                 ImageView mImageView = (ImageView) views.findViewById(R.id.item_iv_content);
+                mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
 //                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,250);
 //                mImageView.setLayoutParams(params);
                 mImageView.setImageResource(imageId[i]);
@@ -149,10 +150,6 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             homeShowBannerAdapter viewPageAdapter = new homeShowBannerAdapter(mViewList,mContext);
             headViewHolder.mViewPager.setAdapter(viewPageAdapter);
             headViewHolder.mViewPager.setCurrentItem(2);
-
-
-
-
 
 
         } else if (holder instanceof MyViewHolder) {

@@ -88,6 +88,7 @@
                 android:layout_weight="1"
                 android:background="@color/part_bg_addCart"
                 android:id="@+id/detail_goods_bottom_addcart"
+                android:textColor="@color/whole_white"
                 android:gravity="center"
                 android:text="加入购物车"
                 android:textSize="18sp"/>
@@ -99,6 +100,7 @@
                 android:background="@color/part_bg_buynow"
                 android:gravity="center"
                 android:id="@+id/detail_goods_bottom_buynow"
+                android:textColor="@color/whole_white"
                 android:text="立即购买"
                 android:textSize="18sp"/>
         </LinearLayout>

@@ -91,5 +91,11 @@
         <item name="android:layout_marginRight">8dp</item>
         <item name="android:background">@color/whole_divider</item>
     </style>
+    
+    <style name="detail_goods_pop_anim">
+        <item name="android:windowEnterAnimation">@anim/detail_goods_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/detail_goods_pop_exit</item>
+    </style>
 
+    
 </resources>
