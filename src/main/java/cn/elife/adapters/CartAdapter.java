@@ -70,7 +70,6 @@ public class CartAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder mViewHolder;
         if(convertView==null){
-
             convertView=mInflater.inflate(R.layout.cart_item_listview,null);
             mViewHolder=new ViewHolder();
             mViewHolder.mImageView= (ImageView) convertView.findViewById(R.id.cart_goodImage);

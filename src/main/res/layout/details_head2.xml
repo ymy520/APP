@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/details_merchname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:text="苏州包子店"
+        android:textSize="@dimen/whole_secondTextSize"/>
+    <TextView
+        android:id="@+id/details_merchaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:text="苏州市高校区文萃店"
+        android:textSize="@dimen/whole_thirdTextSize"/>
+    <TextView
+        android:id="@+id/details_merchdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:layout_marginBottom="@dimen/whole_marginBottom"
+        android:text="苏州包子店的包子就是好吃。。。。"/>
+
+</LinearLayout>
