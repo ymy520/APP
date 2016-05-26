@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:background="@drawable/bg_border">
+
+    <TextView
+        android:id="@+id/car_ev_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:layout_marginTop="10dp"
+        android:text="车主"/>
+
+    <TextView
+        android:id="@+id/car_ev_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/whole_marginLeft"
+        android:layout_marginTop="10dp"
+        android:text="2016-05-26"/>
+
+    <TextView
+        android:id="@+id/car_ev_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/car_ev_user"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:layout_marginRight="@dimen/whole_marginLeft"
+        android:layout_marginTop="14dp"
+        android:text="非常给力。。。。"/>
+
+    <TextView
+        android:id="@+id/car_servername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/car_ev_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:layout_marginTop="10dp"
+        android:text="服务："/>
+
+    <TextView
+        android:id="@+id/car_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/car_ev_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/car_servername"
+        android:text="标准洗车"/>
+</android.support.percent.PercentRelativeLayout>
