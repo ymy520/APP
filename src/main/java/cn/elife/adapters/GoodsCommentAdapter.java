@@ -33,7 +33,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     Context mContext;
     LayoutInflater mInflater;
 
-    onMyClickListener mOnClickListener;
+    onClickItemListener mOnClickItemListener;
 
     public GoodsCommentAdapter(List<GoodsComment> mGoodsCommentList, Context mContext) {
         this.mGoodsCommentList = mGoodsCommentList;
@@ -47,7 +47,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         View view = null;
         if (viewType == TYPE_HEAD) {
             view = mInflater.inflate(R.layout.detail_goods_body_head, parent, false);
-            MyHeadViewHolder headViewHolder = new MyHeadViewHolder(view, mOnClickListener);
+            MyHeadViewHolder headViewHolder = new MyHeadViewHolder(view);
             return headViewHolder;
         } else if (viewType == TYPE_BODY) {
             view = mInflater.inflate(R.layout.detail_goods_body_item, parent, false);
@@ -58,7 +58,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 //        往布局上绑定数据，根据position从数据源中获取数据，，，但是头布局的数据从哪里获取？？？
         if (holder instanceof MyHeadViewHolder) {
             //这个是头布局,,,头布局的数据从哪里来呢？？？现写
@@ -72,19 +72,44 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        show("我设置了喜欢");
+//                        show("我设置了喜欢");
                         headViewHolder.mCheckBoxLike.setChecked(true);
                     } else {
-                        show("我设置了不喜欢");
+//                        show("我设置了不喜欢");
                         headViewHolder.mCheckBoxLike.setChecked(false);
                     }
                 }
             });
 
+            if(mOnClickItemListener != null){
+
+                ((MyHeadViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int position= holder.getLayoutPosition();
+                        mOnClickItemListener.onItemClick(holder.itemView, position);
+                        //这里可以写内容任意一控件的监听事件
+//                        switch (v.getId()){
+//                            case R.id.detail_goods_head_cb_like:
+//                                show("这是新的，你点击了我喜欢");
+//                                break;
+//                            case R.id.detail_goods_head_iv_share:
+//                                show("这是新的，你点击了分享");
+//                                break;
+//                            case R.id.detail_goods_head_tv_morecomment:
+//                                show("这是新的，你点击了更多评论");
+//                                break;
+//                        }
+
+
+                    }
+                });
+            }
+
             headViewHolder.mTextViewMoreCommnet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    show("我点击了，更多评论");
+//                    show("我点击了，更多评论");
                 }
             });
 
@@ -183,9 +208,9 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public void setOnClickListener(onMyClickListener onClickListener) {
+    public void setOnClickItemListener(onClickItemListener Listener) {
         //这句话有什么用呢？
-        this.mOnClickListener = onClickListener;
+        this.mOnClickItemListener = Listener;
     }
 
 
@@ -208,7 +233,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public class MyHeadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyHeadViewHolder extends RecyclerView.ViewHolder{
         //        头部布局中的所有控件
         public ViewPager mViewPager;
         public TextView mTextViewGoodsName;
@@ -219,9 +244,7 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public TextView mTextViewMoreCommnet;
 
-        private onMyClickListener mOnClickListener;
-
-        public MyHeadViewHolder(View itemView, onMyClickListener onListener) {
+        public MyHeadViewHolder(View itemView) {
             super(itemView);
             mViewPager = (ViewPager) itemView.findViewById(R.id.detail_goods_head_vp_showimage);
             mTextViewGoodsName = (TextView) itemView.findViewById(R.id.detail_goods_head_tv_goodsname);
@@ -230,8 +253,6 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             mCheckBoxLike = (CheckBox) itemView.findViewById(R.id.detail_goods_head_cb_like);
             mImageViewShare = (ImageView) itemView.findViewById(R.id.detail_goods_head_iv_share);
             mTextViewMoreCommnet = (TextView) itemView.findViewById(R.id.detail_goods_head_tv_morecomment);
-
-            this.mOnClickListener = onListener;
 
             Drawable home[] = mTextViewMoreCommnet.getCompoundDrawables();
             home[2].setBounds(0, 0, 36, 36);
@@ -255,22 +276,22 @@ public class GoodsCommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         }
 
-        @Override
-        public void onClick(View v) {
-            if (mOnClickListener != null) {
-                mOnClickListener.onMyClick(v, getLayoutPosition());
-                show("我是设置在适配器中的监听事件，");
-            }
-        }
+//        @Override
+//        public void onClick(View v) {
+//            if (mOnClickListener != null) {
+//                mOnClickListener.onItemClick(v, getLayoutPosition());
+//                show("我是设置在适配器中的监听事件，");
+//            }
+//        }
     }
 
     private void show(String text) {
         Toast.makeText(mContext, text, Toast.LENGTH_SHORT).show();
     }
 
-    public interface onMyClickListener {
+    public interface onClickItemListener {
         //这两个数据是从哪里来的
-        public void onMyClick(View view, int position);
+        public void onItemClick(View view, int position);
 
     }
 

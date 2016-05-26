@@ -86,6 +86,23 @@ public class DetailGoodsActivity extends AppCompatActivity {
             }
         });
 
+        mGoodsCommentAdapter.setOnClickItemListener(new GoodsCommentAdapter.onClickItemListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                switch (view.getId()){
+                    case R.id.detail_goods_head_cb_like:
+                        show("这是新的，你点击了我喜欢");
+                        break;
+                    case R.id.detail_goods_head_iv_share:
+                        show("这是新的，你点击了分享");
+                        break;
+                    case R.id.detail_goods_head_tv_morecomment:
+                        show("这是新的，你点击了更多评论");
+                        break;
+                }
+            }
+        });
+
     }
 
     private void setAdapter() {
