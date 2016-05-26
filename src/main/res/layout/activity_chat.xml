@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.elife.elife.ChatActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/head"
+        android:background="@color/whole_divider">
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/actionbar_back_normal"
+            android:id="@+id/chat_iv_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="张凤歌"
+            android:textSize="16sp"
+            android:id="@+id/chat_tv_chatwith"
+            />
+    </RelativeLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/head"
+        android:id="@+id/chat_rv_messsagelist">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/whole_divider"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:hint="我想对你说"
+            android:layout_margin="2dp"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingLeft="5dp"
+            android:background="@drawable/shape_chat_edittext_bg"
+            android:id="@+id/chat_et_messsagecontent"/>
+        
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="发送"
+            android:textColor="@drawable/chat_sendbt_textcolor_selector"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            android:enabled="false"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_bt_send"
+            android:id="@+id/chat_bt_messagesend"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

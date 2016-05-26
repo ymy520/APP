@@ -286,6 +286,7 @@ public class HomeFragment extends Fragment {
         for (int i = 0; i < imageId.length; i++) {
             View view = LayoutInflater.from(mView.getContext()).inflate(R.layout.home_banner_item, null);
             ImageView mImageView = (ImageView) view.findViewById(R.id.item_iv_content);
+            mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             mImageView.setImageResource(imageId[i]);
             mViewList.add(view);
         }
