@@ -35,6 +35,11 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".SearchActivity"
@@ -44,6 +49,10 @@
         </activity>
         <activity android:name=".AddressActivity">
         </activity>
+        <!--<activity
+            android:name=".AddressActivity"
+            android:launchMode="singleTask">
+        </activity>-->
         <activity android:name=".UpdateAddressActivity">
         </activity>
         <activity android:name=".UserMessageActivity">
@@ -59,11 +68,6 @@
         <activity android:name=".MyNewsActivity">
         </activity>
         <activity android:name=".WashCarActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".CarDetailActivity">
             <intent-filter>
@@ -71,6 +75,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".MyOrderActivity">
+        </activity>
+        <activity android:name=".SettingActivity">
+        </activity>
+        <activity android:name=".FeedBackActivity">
         </activity>
     </application>
 

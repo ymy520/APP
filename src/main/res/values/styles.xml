@@ -92,4 +92,20 @@
         <item name="android:background">@color/whole_divider</item>
     </style>
 
+    <style name="mw">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">37dp</item>
+    </style>
+
+    <style name="radio">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColor">@drawable/textcolor</item>
+        <item name="android:textSize">15dp</item>
+    </style>
 </resources>

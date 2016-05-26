@@ -16,7 +16,6 @@ import cn.elife.fragments.MyFragment;
 import cn.elife.fragments.SocialFragment;
 
 public class MainActivity extends AppCompatActivity {
-//////// hello world!
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
