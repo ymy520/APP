@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!--actionbar-->
+    <include layout="@layout/fragment_topbar"/>
+    <!--分割线-->
+    <TextView
+        style="@style/style_horizontal_divise"/>
+    <!--分类开始-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff"
+        >
+
+        <Spinner
+            android:id="@+id/fm_sp_sp1"
+            style="@style/style_spinner">
+        </Spinner>
+        <!--这个是spinner之间的分割线-->
+        <ImageView
+            style="@style/style_mian_verline"/>
+
+        <Spinner
+            android:id="@+id/fm_sp_sp2"
+            style="@style/style_spinner"
+            ></Spinner>
+
+        <ImageView
+            style="@style/style_mian_verline"/>
+
+        <Spinner
+            android:id="@+id/fm_sp_sp3"
+            style="@style/style_spinner"
+            ></Spinner>
+
+    </LinearLayout>
+    <!--设置一条分割线-->
+    <!--分割线-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/whole_divider"/>
+
+
+    <!--核心数据开始-->
+    <ListView
+        android:id="@+id/fm_lv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>

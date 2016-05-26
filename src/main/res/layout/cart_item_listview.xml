@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:layout_marginBottom="8dp"
+                                               android:layout_marginTop="8dp"
+                                               android:orientation="vertical">
+    <CheckBox
+        android:id="@+id/cart_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:id="@+id/cart_goodImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/cart_checkBox"
+        android:scaleType="fitXY"
+        android:src="@drawable/cart_test"/>
+
+    <TextView
+        android:id="@+id/cart_desc"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@id/cart_goodImage"
+        android:text="欧莱雅男士洁面乳100ml"
+        android:textSize="14dp"/>
+
+    <TextView
+        android:id="@+id/cart_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cart_goodImage"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/cart_goodImage"
+        android:text="￥"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/cart_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cart_goodImage"
+        android:layout_toRightOf="@id/cart_unit"
+        android:text="20"
+        android:textSize="20sp"/>
+
+    <ImageButton
+        android:id="@+id/cart_plus"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@id/cart_goodImage"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/raybuy_plus_btn_disable"/>
+
+    <TextView
+        android:id="@+id/cart_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cart_goodImage"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/cart_plus"
+        android:text="3"
+        android:textSize="20sp"/>
+
+    <ImageButton
+        android:id="@+id/reduce"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@id/cart_goodImage"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/cart_count"
+        android:src="@drawable/raybuy_reduce_btn_disable"/>
+
+</android.support.percent.PercentRelativeLayout>

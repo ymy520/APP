@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--不允许定义局部字体、图片等大小；不允许局部定义元素到屏幕边缘的距离，必须使用全局规定好的；-->
+    <!--标题框高度-->
+    <dimen name="title_box">55dp</dimen>
+    <!--全局大小-->
+    <!--标题信息-->
+    <dimen name="whole_titleTextSize">22dp</dimen>
+    <!--一级字体大小-->
+    <dimen name="whole_firstTextSize">20dp</dimen>
+    <!--二级字体大小-->
+    <dimen name="whole_secondTextSize">18dp</dimen>
+    <!--三级级字体大小-->
+    <dimen name="whole_thirdTextSize">14dp</dimen>
+    <!--三级详细信息字体大小-->
+    <dimen name="whole_third_detail">15dp</dimen>
+
+    <!--全局元素到屏幕左边的距离-->
+    <dimen name="whole_marginLeft">16dp</dimen>
+    <!--全局元素到屏幕右边的距离-->
+    <dimen name="whole_marginRight">16dp</dimen>
+    <!--全局元素到屏幕上边的距离-->
+    <dimen name="whole_marginTop">16dp</dimen>
+    <!--全局元素到屏幕低边的距离-->
+    <dimen name="whole_marginBottom">16dp</dimen>
+
+
+    <!--局部字体大小-->
+    <!--底部五大按钮字体大小-->
+    <dimen name="bottomNav_TextSize">12dp</dimen>
+    <!--搜索框里字体大小-->
+    <dimen name="search_TextSize">18dp</dimen>
+
+
+    <!-- 自定义Pay视图 -->
+    <declare-styleable name="PayRidioButton">
+        <attr name="title1" format="reference|string"/>
+        <attr name="logo1" format="reference|color"/>
+        <attr name="desc" format="reference|string"/>
+        <attr name="checked" format="boolean"/>
+        <attr name="radio" format="reference"/>
+    </declare-styleable>
+
+    <!-- Standard orientation constant. -->
+    <attr name="orientation">
+        <!-- Defines an horizontal widget. -->
+        <enum name="horizontal" value="0"/>
+        <!-- Defines a vertical widget. -->
+        <enum name="vertical" value="1"/>
+    </attr>
+
+    <declare-styleable name="PayRidioGroup">
+        <!-- The id of the child radio button that should be checked by default
+             within this radio group. -->
+        <attr name="checkedButton" format="integer"/>
+        <!-- Should the radio group be a column or a row?  Use "horizontal"
+             for a row, "vertical" for a column.  The default is
+             vertical. -->
+        <attr name="orientation"/>
+    </declare-styleable>
+</resources>

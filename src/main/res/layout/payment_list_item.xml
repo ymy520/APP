@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:orientation="vertical"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="100dp"
+                                               android:background="@drawable/bg_border"
+    >
+    <ImageView
+        android:id="@+id/pay_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/login_wechat_logo_normal"/>
+    <TextView
+        android:id="@+id/pay_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/pay_icon"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="微信支付"
+        android:textSize="@dimen/whole_firstTextSize"/>
+    <TextView
+        android:id="@+id/pay_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_name"
+        android:layout_toRightOf="@id/pay_icon"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="微信账户拥有者使用"/>
+    <RadioButton
+        android:id="@+id/pay_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:checked="false"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"/>
+
+</android.support.percent.PercentRelativeLayout>
