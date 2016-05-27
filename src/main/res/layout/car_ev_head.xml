@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:background="@drawable/bg_border"
+                                               >
+
+    <TextView
+        android:id="@+id/car_evtext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/whole_marginBottom"
+        android:layout_marginLeft="@dimen/whole_marginLeft"
+        android:layout_marginTop="@dimen/whole_marginTop"
+        android:text="评价 ( "
+        android:textSize="@dimen/whole_secondTextSize"/>
+
+    <TextView
+        android:id="@+id/car_ev_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/whole_marginBottom"
+        android:layout_marginTop="@dimen/whole_marginTop"
+        android:layout_toRightOf="@id/car_evtext1"
+        android:text="20"
+        android:textSize="@dimen/whole_secondTextSize"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/whole_marginBottom"
+        android:layout_marginTop="@dimen/whole_marginTop"
+        android:layout_toRightOf="@id/car_ev_num"
+        android:text=" )"
+        android:textSize="@dimen/whole_secondTextSize"/>
+
+    <LinearLayout
+        android:id="@+id/car_er_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/whole_marginRight">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 查看更多"
+            android:layout_marginRight="4dp"
+            android:textSize="@dimen/whole_secondTextSize"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/right_arrow_icon"/>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>

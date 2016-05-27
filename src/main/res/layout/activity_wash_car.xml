@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.elife.elife.WashCarActivity">
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <ImageView
+            android:id="@+id/car_back"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/actionbar_back_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="快捷洗车"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/whole_titleTextSize"/>
+    </android.support.percent.PercentRelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/car_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/car_distance"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:background="@drawable/car_top_border"
+            android:button="@null"
+            android:textSize="@dimen/whole_firstTextSize"
+            android:text="附近"
+            android:textColor="@color/whole_text_whiteColor"/>
+        <RadioButton
+            android:id="@+id/car_ev"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:background="@drawable/car_top_border"
+            android:button="@null"
+            android:textSize="@dimen/whole_firstTextSize"
+            android:text="好评排序"
+            android:textColor="@color/whole_text_whiteColor"/>
+        <RadioButton
+            android:id="@+id/car_order"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:background="@drawable/car_top_border"
+            android:button="@null"
+            android:textSize="@dimen/whole_firstTextSize"
+            android:text="订单排序"
+            android:textColor="@color/whole_text_whiteColor"/>
+    </RadioGroup>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/car_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+</LinearLayout>

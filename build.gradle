@@ -18,9 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ["libs"]
+    sourceSets{
+        main{
+            jniLibs.srcDirs=["libs"]
         }
     }
 }
@@ -38,6 +38,7 @@ dependencies {
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.5'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.android.support:support-annotations:23.4.0'
+    compile 'com.android.support:support-annotations:23.3.0'
     compile 'com.journeyapps:zxing-android-embedded:2.3.0@aar'
     compile 'com.journeyapps:zxing-android-legacy:2.3.0@aar'
     compile 'com.journeyapps:zxing-android-integration:2.3.0@aar'
@@ -45,10 +46,4 @@ dependencies {
     compile 'com.loopeer.android.thirdparty.pulltorefresh:Android-PullToRefresh:2.1.1'
     compile 'com.android.support:support-v4:23.4.0'
 }
-
-
-
-
-
-
 

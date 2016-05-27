@@ -54,11 +54,8 @@ public class homeShowAllAdapter extends RecyclerView.Adapter<homeShowAllAdapter.
     }
 
     public void setOnItemClickListener(MyItemClickListener mListener){
-        //给适配器定义布局监听事件，，，相当于这里是初始化
+        //给适配器定义布局监听事件
         this.mOnClickListener = mListener;
-
-        Toast.makeText(mContext, "我在这里能不能监听到点击事件呢", Toast.LENGTH_SHORT).show();
-
     }
 
 
@@ -80,7 +77,8 @@ public class homeShowAllAdapter extends RecyclerView.Adapter<homeShowAllAdapter.
             if(mListener != null){
                 mListener.onItemClick(v,getLayoutPosition());
 
-//                Toast.makeText(mShowGoodsView.getContext(), "我是设置在适配器中的点击方法", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mShowGoodsView.getContext(), "我是设置在适配器中的点击方法", Toast.LENGTH_SHORT).show();
+
             }
         }
 

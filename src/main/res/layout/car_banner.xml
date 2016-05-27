@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <cn.elife.utils.CarDetailViewPager
+        android:id="@+id/car_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#31527B">
+    </cn.elife.utils.CarDetailViewPager>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/car_bor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/car_navigation"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/whole_marginTop"
+                    android:background="@drawable/car_nav_border">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/navigation"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/whole_marginLeft"
+                        android:text="路线导航"
+                        android:textSize="@dimen/whole_titleTextSize"/>
+                </LinearLayout>
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/car_tel"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/whole_marginTop"
+                    android:background="@drawable/car_nav_border">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/car_tel"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/whole_marginLeft"
+                        android:text="联系商家"
+                        android:textSize="@dimen/whole_titleTextSize"/>
+                </LinearLayout>
+            </android.support.percent.PercentRelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/car_merchantaddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="江苏省苏州市仁爱路一号"
+            android:textSize="@dimen/whole_secondTextSize"
+            android:layout_below="@id/car_bor"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/whole_marginBottom"
+            android:layout_marginRight="@dimen/whole_marginRight"
+            android:layout_alignParentRight="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="详细地址："
+            android:layout_below="@id/car_bor"
+            android:layout_toLeftOf="@id/car_merchantaddr"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/whole_marginBottom"
+            android:textSize="@dimen/whole_secondTextSize"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</LinearLayout>

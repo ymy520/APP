@@ -57,7 +57,6 @@ public class DetailsFragment extends Fragment{
                 new FinishRefresh().execute();
                 mDetailsAdapter.notifyDataSetChanged();
             }
-
             class FinishRefresh extends AsyncTask<Void, Void, Void> {
                 @Override
                 protected Void doInBackground(Void... params) {
@@ -67,14 +66,12 @@ public class DetailsFragment extends Fragment{
                     }
                     return null;
                 }
-
                 @Override
                 protected void onPostExecute(Void result){
 //          adapter.notifyDataSetChanged();
                     pullToRefreshView.onRefreshComplete();
                 }
             }
-
             @Override
             public void onPullUpToRefresh(
                     PullToRefreshBase<ListView> refreshView) {
@@ -103,21 +100,6 @@ public class DetailsFragment extends Fragment{
         endLabels.setPullLabel("上拉刷新...");// 刚下拉时，显示的提示
         endLabels.setRefreshingLabel("正在载入...");// 刷新时
         endLabels.setReleaseLabel("放开刷新...");// 下来达到一定距离时，显示的提示
-
-//      // 设置下拉刷新文本
-//      pullToRefresh.getLoadingLayoutProxy(false, true)
-//              .setPullLabel("上拉刷新...");
-//      pullToRefresh.getLoadingLayoutProxy(false, true).setReleaseLabel(
-//              "放开刷新...");
-//      pullToRefresh.getLoadingLayoutProxy(false, true).setRefreshingLabel(
-//              "正在加载...");
-//      // 设置上拉刷新文本
-//      pullToRefresh.getLoadingLayoutProxy(true, false)
-//              .setPullLabel("下拉刷新...");
-//      pullToRefresh.getLoadingLayoutProxy(true, false).setReleaseLabel(
-//              "放开刷新...");
-//      pullToRefresh.getLoadingLayoutProxy(true, false).setRefreshingLabel(
-//              "正在加载...");
     }
 
     private void initData() {

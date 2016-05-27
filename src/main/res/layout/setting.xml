@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/left_box"
+                android:layout_width="43dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/actionbar_back_normal"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-50dp"
+                android:gravity="center"
+
+                android:text="设置"
+
+                android:textSize="@dimen/whole_firstTextSize"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/snacksdiver"
+            />
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/zhanghuanquan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/anquan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="账户与安全"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:id="@+id/setting01"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/right_arrow_icon"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/qingchuhuancun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/clearcache"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="清除缓存"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/setting02"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:text="2.3M"
+                android:textSize="14dp"
+                android:textColor="@color/whole_btn"
+                />
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/banbengengxin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/updataversion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="版本更新"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:id="@+id/setting03"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/right_arrow_icon"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/kefuzhongxin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/servicecenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="客服中心"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/settong04"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:text="123-456-7890"
+                android:textSize="14dp"
+                android:textColor="@color/whole_btn"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/yijianfankui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/opinion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="意见反馈"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:id="@+id/setting05"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/right_arrow_icon"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+
+        <LinearLayout
+            android:id="@+id/guanyu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:text="关于"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:id="@+id/center_rightpic06"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/right_arrow_icon"/>
+        </LinearLayout>
+        <!--分割线-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/snacksdiver"
+            />
+    </LinearLayout>
+    <!--最后的退出按钮-->
+    <TextView
+        android:id="@+id/setting_exit"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="2dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/whole_text_redColor"
+        android:gravity="center"
+        android:text="退出当前账号"
+        android:textColor="@color/whole_text_whiteColor"
+        android:textSize="@dimen/whole_firstTextSize"/>
+
+</LinearLayout>

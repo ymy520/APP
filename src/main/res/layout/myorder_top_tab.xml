@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/orders"
+        style="@style/mw"
+        android:background="@color/topColor"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/id_all"
+            style="@style/radio"
+            android:checked="true"
+            android:text="全部"
+            />
+
+        <RadioButton
+            android:id="@+id/id_daifukuan"
+            style="@style/radio"
+            android:button="@null"
+            android:text="待付款"
+            />
+
+        <RadioButton
+            android:id="@+id/id_daifahuo"
+            style="@style/radio"
+            android:button="@null"
+            android:text="待发货"
+            />
+
+        <RadioButton
+            android:id="@+id/id_daishouhuo"
+            style="@style/radio"
+            android:text="待收货"
+            android:button="@null"
+
+            />
+
+        <RadioButton
+            android:id="@+id/id_daipingjia"
+            style="@style/radio"
+            android:text="待评价"
+            android:button="@null"
+
+            />
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/id_tab_line"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/order_shape"
+        android:contentDescription="tab"/>
+</merge>
+
+

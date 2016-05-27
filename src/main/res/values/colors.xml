@@ -52,6 +52,8 @@
     <color name="umeng_comm_lv_header_color2">#ff4444</color>
     <color name="umeng_comm_lv_header_color3">#99cc00</color>
     <color name="umeng_comm_lv_header_color4">#ffbb33</color>
-
-
+    <!--radio:订单-->
+    <color name="textDown">#ff0000</color>
+    <color name="textUp">#333</color>
+    <color name="topColor">#EFEEEC</color>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 默认时的背景图片-->
+    <item android:drawable="@color/whole_text_blackSecond" />
+    <!-- 没有焦点时的背景图片 -->
+    <item android:state_window_focused="false"
+          android:drawable="@color/part_bg_addCart" />
+    <!-- 非触摸模式下获得焦点并单击时的背景颜色 -->
+    <item
+        android:state_focused="true"
+        android:state_pressed="true"
+        android:drawable="@color/whole_baseColor"/>
+    <!-- 触摸模式下单击时的背景-->
+    <item
+        android:state_focused="false"
+        android:state_pressed="true"
+        android:drawable="@color/whole_text_blackFirst"/>
+    <!--选中时的背景-->
+    <item
+        android:state_selected="true"
+        android:drawable="@color/whole_baseColor" />
+    <!--获得焦点时的背景-->
+    <item android:state_focused="true"
+          android:drawable="@color/whole_bg" />
+</selector>

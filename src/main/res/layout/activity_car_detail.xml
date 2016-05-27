@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.elife.elife.CarDetailActivity">
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/car_back"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/actionbar_back_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="车族联盟"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/whole_titleTextSize"/>
+    </android.support.percent.PercentRelativeLayout>
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20">
+        <ListView
+            android:id="@+id/car_merchan_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+    </android.support.percent.PercentRelativeLayout>
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/car_write_order"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/car_top_border"
+        android:layout_weight="1"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="填写订单"
+                android:textSize="@dimen/whole_firstTextSize"/>
+    </android.support.percent.PercentRelativeLayout>
+
+</LinearLayout>
