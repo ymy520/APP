@@ -1,5 +1,8 @@
 package cn.elife.elife;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -30,6 +33,7 @@ import cn.elife.widget.NoScrollScrollView;
 
 public class SendMessageActivity extends AppCompatActivity {
 
+    public static final int CHOOSE_PICTURE = 1;
     @Bind(R.id.chat_iv_back)
     ImageView mChatIvBack;
     @Bind(R.id.chat_tv_chatwith)
@@ -62,9 +66,10 @@ public class SendMessageActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         initData();
-        setListener();
 
         setAdapter();
+
+        setListener();
 
     }
 
@@ -83,16 +88,6 @@ public class SendMessageActivity extends AppCompatActivity {
         mImageUrlList.add(R.mipmap.ic_launcher);
         mImageUrlList.add(R.mipmap.ic_launcher);
         mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-        mImageUrlList.add(R.mipmap.ic_launcher);
-
     }
 
     private void setAdapter() {
@@ -133,6 +128,7 @@ public class SendMessageActivity extends AppCompatActivity {
             }
         });
 
+
         mSendmessageLvHottitle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -141,6 +137,7 @@ public class SendMessageActivity extends AppCompatActivity {
 
 //                mSendmessageEtEditmessage.setText("");
                 String title = mHotTitleList.get(position).toString();
+                //给字体加颜色
                 mSendmessageEtEditmessage.setText(Html.fromHtml("<a href=\"www.baidu.com\">"+title+"</a>"));
                 mSendmessageEtEditmessage.setFocusable(true);
                 mSendMessageScrollview.scrollTo(0,0);
@@ -148,5 +145,57 @@ public class SendMessageActivity extends AppCompatActivity {
             }
         });
 
+        mMsgImageAdapter.setOnItemClickListener(new MsgImageAdapter.onItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                if(position == (mImageUrlList.size() - 1)){
+                    //如果索引等于集合大小，说明，是最后一个是加载图片用的，，，
+                    // 只有这一个图片上面有点击事件，其他图片有长按点击事件
+                    show("我要去加载本地图片");
+                    Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    openAlbumIntent.setType("image/*");
+                    startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
+                }
+
+            }
+        });
+
+        mMsgImageAdapter.setOnItemLongClickListener(new MsgImageAdapter.onItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View view, int position) {
+                if(position < (mImageUrlList.size() - 1)){
+                    show("我要删除" + position + "处的数据");
+                    mImageUrlList.remove(position);
+                    mMsgImageAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case CHOOSE_PICTURE:
+                    ContentResolver resolver = getContentResolver();
+
+                    Uri originalUri = data.getData();
+
+                    mSendmessageEtEditmessage.setText("获取的图片地址为" + originalUri);
+
+                    break;
+            }
+        }
+
+    }
+
+    private void show(String s) {
+        Toast.makeText(SendMessageActivity.this, s, Toast.LENGTH_SHORT).show();
+    }
+
+
 }

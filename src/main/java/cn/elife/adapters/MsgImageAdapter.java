@@ -20,6 +20,9 @@ public class MsgImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     Context mContext;
     LayoutInflater mInflater;
 
+    onItemClickListener mOnItemClickListener;
+    onItemLongClickListener mOnItemLongClickListener;
+
     public MsgImageAdapter(List<Integer> imageURLList, Context context) {
         mImageURLList = imageURLList;
         mContext = context;
@@ -36,9 +39,31 @@ public class MsgImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 
         ((MyViewHolder) holder).mImageView.setImageResource(mImageURLList.get(position));
+
+        if(mOnItemClickListener != null){
+            ((MyViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.itemView,position);
+                }
+            });
+        }
+
+        if(mOnItemLongClickListener != null){
+            ((MyViewHolder) holder).itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int position = holder.getLayoutPosition();
+                    mOnItemLongClickListener.onItemLongClick(holder.itemView,position);
+                    return true;
+                }
+            });
+        }
+
 
     }
 
@@ -53,7 +78,25 @@ public class MsgImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public MyViewHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.msgimage_iv_image);
-
         }
     }
+
+    public void setOnItemClickListener(onItemClickListener mOnItemClickListener){
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+    public void setOnItemLongClickListener(onItemLongClickListener mOnItemLongClickListener){
+        this.mOnItemLongClickListener = mOnItemLongClickListener;
+    }
+
+
+
+    public interface onItemClickListener{
+        public void onItemClick(View view,int position);
+    }
+
+    public interface onItemLongClickListener{
+        public void onItemLongClick(View view,int position);
+    }
+
 }
